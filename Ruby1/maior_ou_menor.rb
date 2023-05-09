@@ -2,10 +2,10 @@ def dar_boas_vindas()
     puts    "Qual seu nome ?"
     nome = gets.chomp
     puts    "\nBem-vindo, #{nome}. \nVamos jogar um jogo !"
-    puts    "\nIrei escolher um número entre 0 e 200"
 end
 
 def sortear_numero_secreto()
+    puts    "\nIrei escolher um número entre 0 e 200"
     for i in 0 .. 2
         print "."
         sleep (1)
@@ -29,29 +29,43 @@ def checar_numero(numero)
     return true
 end
 
-def pegar_numero_usuario
+def pegar_numero_usuario_valido
     begin
       numero_usuario = gets.chomp
     end while checar_numero(numero_usuario) == false
-    numero_usuario
+    return numero_usuario
   end
-    
+
+def acertou_numero_secreto(numero_usuario, numero_secreto)
+    if numero_usuario < numero_secreto
+        puts "Seu número está abaixo !\n\n"
+        return false
+    end
+    if numero_usuario > numero_secreto  
+        puts "Seu número está acima !\n\n"
+        return false
+    end
+    puts "Parabéns, o número que eu escolhi era #{numero_secreto}! \n\n" 
+    return true
+end
+
 def adivinhar_numero (numero_secreto)
+    tentativas_anteriores = []
     limite_tentativa = 5
     tentativa = 1
+
     while tentativa <= limite_tentativa
         puts "Tentativa #{tentativa} de #{limite_tentativa} "
-        numero_usuario = pegar_numero_usuario()
-        if numero_usuario.to_i < numero_secreto
-            puts "\nSeu número está abaixo !"
-        elsif numero_usuario.to_i > numero_secreto  
-            puts "\nSeu número está acima !"   
-        else
-            puts "Parabéns, o número que eu escolhi era #{numero_secreto}! \n" 
+        puts "Você já tentou os números: #{tentativas_anteriores}"
+        print "Seu palpite atual: "
+        numero_usuario = pegar_numero_usuario_valido()
+        if acertou_numero_secreto(numero_usuario.to_i, numero_secreto)
             return
         end
+        tentativas_anteriores.push(numero_usuario)
         tentativa += 1
     end
+
     puts "\nVocê perdeu :(\nO Número escolhido era #{numero_secreto} "
 end
 
