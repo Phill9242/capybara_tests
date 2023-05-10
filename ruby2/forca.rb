@@ -29,11 +29,20 @@ def pedir_chute()
     return chute
 end
 
-def checar_letra(chute_atual, palavra_secreta)
-    return palavra_secreta.include?(chute_atual)
+def preencher_palavra_ate_agora(palavra_ate_agora)
+
 end
 
-def exibir_palavra(palavra_ate_agora)
+def checar_letra(chute_atual, palavra_secreta, palavra_ate_agora)
+    if palavra_secreta.include?(chute_atual)
+        puts "tem a letra"
+        preencher_palavra_ate_agora(palavra_ate_agora)
+        return true
+    end
+    return false
+end
+
+def exibir_estado_atual(palavra_ate_agora)
     puts
     for letra in palavra_ate_agora
         print "#{letra} "
@@ -54,7 +63,7 @@ def jogar(palavra_secreta)
     letras_chutadas = []
     palavra_ate_agora = preencher_array_com_linhas(palavra_secreta.size)
     loop do
-        exibir_palavra (palavra_ate_agora)
+        exibir_estado_atual(palavra_ate_agora)
         chute_atual = pedir_chute()
         chutou_uma_letra = chute_atual.size == 1
 
@@ -64,20 +73,23 @@ def jogar(palavra_secreta)
         end
         if chutou_uma_letra
             letras_chutadas << chute_atual
-            palavra_ate_agora = checar_letra(chute_atual, palavra_secreta)
-        end 
-
-        break 
+            if checar_letra(chute_atual, palavra_secreta, palavra_ate_agora)
+                next
+        end
+        vidas -=1
+        break if vidas == 0 end
        
     end
 
 end
 
-
-
-boas_vindas
-loop do
-    palavra_secreta = escolher_palavra_secreta
-    jogar(palavra_secreta)
-    break unless jogar_novamente?
+def main()
+    boas_vindas
+    loop do
+        palavra_secreta = escolher_palavra_secreta
+        jogar(palavra_secreta)
+        break unless jogar_novamente?
+    end
 end
+
+main()
