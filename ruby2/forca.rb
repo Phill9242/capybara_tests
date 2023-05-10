@@ -25,25 +25,32 @@ end
 
 def pedir_chute()
     print "escolha uma letra ou palavra: "
-    chute = gets.strip.downcase
+    chute = gets.strip.downcase.chomp
     return chute
 end
 
-def preencher_palavra_ate_agora(palavra_ate_agora)
-
+def preencher_palavra_ate_agora(palavra_ate_agora, palavra_secreta, chute_atual)
+    i = 0
+    while i < palavra_secreta.size
+        if palavra_secreta[i] == chute_atual
+            palavra_ate_agora[i] = chute_atual
+        end
+        i += 1
+    end
 end
 
 def checar_letra(chute_atual, palavra_secreta, palavra_ate_agora)
     if palavra_secreta.include?(chute_atual)
-        puts "tem a letra"
-        preencher_palavra_ate_agora(palavra_ate_agora)
+        preencher_palavra_ate_agora(palavra_ate_agora, palavra_secreta, chute_atual)
         return true
     end
     return false
 end
 
-def exibir_estado_atual(palavra_ate_agora)
+def exibir_estado_atual(palavra_ate_agora, vidas, letras_chutadas)
     puts
+    puts "Letras tentadas: #{letras_chutadas.sort}"
+    puts "Vidas restantes: #{vidas} "
     for letra in palavra_ate_agora
         print "#{letra} "
     end
@@ -63,10 +70,10 @@ def jogar(palavra_secreta)
     letras_chutadas = []
     palavra_ate_agora = preencher_array_com_linhas(palavra_secreta.size)
     loop do
-        exibir_estado_atual(palavra_ate_agora)
+        errou_letra = true
+        exibir_estado_atual(palavra_ate_agora, vidas, letras_chutadas)
         chute_atual = pedir_chute()
         chutou_uma_letra = chute_atual.size == 1
-
         if letras_chutadas.include?(chute_atual)
             puts "Você já tentou essa letra !"
             next
@@ -74,13 +81,21 @@ def jogar(palavra_secreta)
         if chutou_uma_letra
             letras_chutadas << chute_atual
             if checar_letra(chute_atual, palavra_secreta, palavra_ate_agora)
-                next
+                errou_letra = false
+            end
         end
-        vidas -=1
-        break if vidas == 0 end
-       
-    end
+        if chute_atual == palavra_secreta || !palavra_ate_agora.include?("_")
+            puts "\nParabéns, você ganhou!\nA palavra secreta era #{palavra_secreta}"
+            return
+        end
 
+        if errou_letra
+            vidas -=1
+        end
+
+        break if vidas == 0
+    end
+    puts "Você perdeu!\nA palavra secreta era #{palavra_secreta}"
 end
 
 def main()
