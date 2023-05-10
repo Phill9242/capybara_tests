@@ -72,11 +72,12 @@ end
 def escolher_dificuldade()
     dificuldade = nil
     intervalo_entre_cada_dificuldade = 30
-
+    dificuldade_minima = 1
+    dificuldade_maxima = 5
     loop do
-        puts "Escolha uma dificuldade entre 1 (mais fácil) e 5 (mais difícil)"
+        puts "Escolha uma dificuldade entre #{dificuldade_minima} (mais fácil) e #{dificuldade_maxima} (mais difícil)"
         dificuldade = gets.chomp.to_i
-        break if dificuldade >= 1 && dificuldade <= 5
+        break if dificuldade >= dificuldade_minima && dificuldade <= dificuldade_maxima
     end
 
     return dificuldade * intervalo_entre_cada_dificuldade    
