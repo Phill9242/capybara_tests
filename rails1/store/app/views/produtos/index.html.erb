@@ -1,9 +1,14 @@
+<% if flash[:notice] %>
+    <div class="alert alert-success"><%= flash[:notice] %> </div>
+<% end %>
+
 <h3>Produtos</h3></th>
 <table class="table table-bordered table-hover">
     <thead>
         <tr>
             <td>Nome</td>
             <td>Descrição</td>
+            <td>Departamento</td>
             <td>Preço</td>
             <td>Quantidade</td>
             <td colspan="1">
@@ -14,11 +19,16 @@
             <tr>
                 <td><%= produto.nome %></td>
                 <td><%= produto.descricao %></td>
+                <td><%= produto.departamento.nome %></td>
                 <td><%= produto.preco %></td>
                 <td><%= produto.quantidade %></td>
                 <td><%=  button_to "Remover", produto, method: :delete, 
-                class:"btn btn-danger",
-                data: {confirm:"Gostaria de remover o produto: #{produto.nome}?"} %></td>
+                    class:"btn btn-danger",
+                    data: {confirm:"Gostaria de remover o produto: #{produto.nome}?"} %>
+                </td>
+                <td>
+                    <%=  link_to "Alterar", edit_produto_path(produto), class:"btn btn-warning" %>
+                </td>
             </tr>
         <% end %>
     </tbody>
@@ -42,7 +52,6 @@
                 <td><%= produto.descricao %></td>
                 <td><%= produto.preco %></td>
                 <td><%= produto.quantidade %></td>
-                <td> Remover </td>
             </tr>
         <% end %>
     </tbody>

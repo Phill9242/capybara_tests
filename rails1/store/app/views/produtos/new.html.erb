@@ -3,10 +3,10 @@
         <div class="alert alert-danger"><%= msg %> </div>
     <% end %>
 <% end %>
-<% if flash[:notice] %>
-    <div class="alert alert-success"> <%=flash[:notice] %> </div>
-<% end %>
-<%= form_for Produto.new do |form| %> 
+
+
+
+<%= form_for @produto do |form| %> 
 
     <div class="row">
         <div class="col-sm-8">
@@ -24,6 +24,14 @@
                 <%= form.text_area :descricao, class:"form-control", rows:4 %>
             </div>
         </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="form-group">
+                <%= form.label :departamento %>
+                <%= form.collection_select :departamento_id, @departamentos, :id, :nome, {}, class:"form-control" %>
+            </div>
+        </div>  
     </div>
     <div class="row">
         <div class="col-sm-2">
