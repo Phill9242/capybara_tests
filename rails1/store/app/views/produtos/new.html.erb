@@ -1,3 +1,11 @@
+<% if @produto %>
+    <% @produto.errors.full_messages.each do |msg| %>
+        <div class="alert alert-danger"><%= msg %> </div>
+    <% end %>
+<% end %>
+<% if flash[:notice] %>
+    <div class="alert alert-success"> <%=flash[:notice] %> </div>
+<% end %>
 <%= form_for Produto.new do |form| %> 
 
     <div class="row">

@@ -11,7 +11,13 @@
   </head>
   <%= nav_bar brand: "My Store", brand_link: root_url do %>
     <%= menu_group do %>
-      <%= menu_item "Cadastro", produtos_cadastro_path %>
+      <%= menu_item "Cadastro", new_produto_path%>
+    <% end %>
+    <%= form_tag busca_produto_path, method: :get, class:"navbar-form navbar-right"  do%>
+      <div class="form-group">
+        <%= text_field_tag :nome, @nome, class:"form-control"%>
+        <%= button_to "Buscar", nil, class:"btn btn-default" %>
+      </div>
     <% end %>
   <% end %>
   <div class="container">

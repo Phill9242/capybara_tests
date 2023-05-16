@@ -16,7 +16,9 @@
                 <td><%= produto.descricao %></td>
                 <td><%= produto.preco %></td>
                 <td><%= produto.quantidade %></td>
-                <td><a href="produtos/<%= produto.id %>/remover"> Remover </a> </td>
+                <td><%=  button_to "Remover", produto, method: :delete, 
+                class:"btn btn-danger",
+                data: {confirm:"Gostaria de remover o produto: #{produto.nome}?"} %></td>
             </tr>
         <% end %>
     </tbody>
