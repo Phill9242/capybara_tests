@@ -9,7 +9,11 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <%= nav_bar brand: "My Store", brand_link: root_url %>
+  <%= nav_bar brand: "My Store", brand_link: root_url do %>
+    <%= menu_group do %>
+      <%= menu_item "Cadastro", produtos_cadastro_path %>
+    <% end %>
+  <% end %>
   <div class="container">
   <body>
     <%= yield %>
