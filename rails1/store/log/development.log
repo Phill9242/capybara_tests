@@ -536,3 +536,376 @@ Processing by ProdutosController#index as HTML
 Completed 200 OK in 25ms (Views: 19.2ms | ActiveRecord: 1.2ms | Allocations: 11394)
 
 
+Started GET "/" for ::1 at 2023-05-16 08:26:40 -0300
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (0.1ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."nome" ASC[0m
+  ↳ app/views/produtos/index.html.erb:14
+  Rendered produtos/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 4971)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.9ms | Allocations: 15936)
+Completed 200 OK in 31ms (Views: 22.6ms | ActiveRecord: 0.5ms | Allocations: 21160)
+
+
+Started GET "/" for ::1 at 2023-05-16 08:28:49 -0300
+Processing by ProdutosController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/produtos_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (0.2ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."preco" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/produtos/index.html.erb:14
+  Rendered produtos/index.html.erb within layouts/application (Duration: 6.6ms | Allocations: 4057)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | Allocations: 8876)
+Completed 200 OK in 20ms (Views: 14.6ms | ActiveRecord: 0.9ms | Allocations: 12502)
+
+
+Started GET "/" for ::1 at 2023-05-16 08:29:29 -0300
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (0.2ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."nome" ASC[0m
+  ↳ app/views/produtos/index.html.erb:14
+  [1m[36mProduto Load (0.1ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."preco" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/produtos/index.html.erb:22
+  Rendered produtos/index.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1954)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.1ms | Allocations: 6811)
+Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 0.4ms | Allocations: 8405)
+
+
+Started GET "/" for ::1 at 2023-05-16 08:29:30 -0300
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (0.5ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."nome" ASC[0m
+  ↳ app/views/produtos/index.html.erb:14
+  [1m[36mProduto Load (0.2ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."preco" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/produtos/index.html.erb:22
+  Rendered produtos/index.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1470)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 5910)
+Completed 200 OK in 18ms (Views: 14.8ms | ActiveRecord: 0.7ms | Allocations: 6499)
+
+
+Started GET "/" for ::1 at 2023-05-16 08:29:31 -0300
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (0.5ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."nome" ASC[0m
+  ↳ app/views/produtos/index.html.erb:14
+  [1m[36mProduto Load (0.4ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."preco" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/produtos/index.html.erb:22
+  Rendered produtos/index.html.erb within layouts/application (Duration: 7.0ms | Allocations: 1463)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 5900)
+Completed 200 OK in 16ms (Views: 14.4ms | ActiveRecord: 0.9ms | Allocations: 6411)
+
+
+Started GET "/" for ::1 at 2023-05-16 08:29:51 -0300
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (0.1ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."nome" ASC[0m
+  ↳ app/views/produtos/index.html.erb:14
+  [1m[36mProduto Load (0.1ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."preco" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/produtos/index.html.erb:23
+  Rendered produtos/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1925)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.7ms | Allocations: 6782)
+Completed 200 OK in 17ms (Views: 15.8ms | ActiveRecord: 0.3ms | Allocations: 8307)
+
+
+Started GET "/" for ::1 at 2023-05-16 08:31:54 -0300
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (0.1ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."nome" ASC[0m
+  ↳ app/views/produtos/index.html.erb:14
+  [1m[36mProduto Load (0.3ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."preco" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/produtos/index.html.erb:27
+  Rendered produtos/index.html.erb within layouts/application (Duration: 6.9ms | Allocations: 1927)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.3ms | Allocations: 6852)
+Completed 200 OK in 20ms (Views: 18.5ms | ActiveRecord: 0.4ms | Allocations: 8440)
+
+
+Started GET "/" for ::1 at 2023-05-16 08:35:02 -0300
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (0.2ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."nome" ASC[0m
+  ↳ app/views/produtos/index.html.erb:14
+  [1m[36mProduto Load (0.2ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."preco" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/produtos/index.html.erb:27
+  Rendered produtos/index.html.erb within layouts/application (Duration: 7.0ms | Allocations: 1920)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.2ms | Allocations: 6805)
+Completed 200 OK in 20ms (Views: 17.9ms | ActiveRecord: 0.4ms | Allocations: 8385)
+
+
+Started GET "/" for ::1 at 2023-05-16 08:35:47 -0300
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (0.1ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."nome" ASC[0m
+  ↳ app/views/produtos/index.html.erb:14
+  [1m[36mProduto Load (0.4ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."preco" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/produtos/index.html.erb:27
+  Rendered produtos/index.html.erb within layouts/application (Duration: 7.3ms | Allocations: 1920)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 6777)
+Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 0.5ms | Allocations: 8356)
+
+
+Started GET "/" for ::1 at 2023-05-16 08:37:06 -0300
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (0.1ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."nome" ASC[0m
+  ↳ app/views/produtos/index.html.erb:14
+  [1m[36mProduto Load (0.2ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."preco" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/produtos/index.html.erb:27
+  Rendered produtos/index.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1919)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 6776)
+Completed 200 OK in 17ms (Views: 14.1ms | ActiveRecord: 0.3ms | Allocations: 8355)
+
+
+Started GET "/" for ::1 at 2023-05-16 08:37:07 -0300
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (0.2ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."nome" ASC[0m
+  ↳ app/views/produtos/index.html.erb:14
+  [1m[36mProduto Load (0.1ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."preco" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/produtos/index.html.erb:27
+  Rendered produtos/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1463)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 5900)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.3ms | Allocations: 6475)
+
+
+Started GET "/" for ::1 at 2023-05-16 08:37:48 -0300
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (0.1ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."nome" ASC[0m
+  ↳ app/views/produtos/index.html.erb:14
+  [1m[36mProduto Load (0.2ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."preco" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/produtos/index.html.erb:27
+  Rendered produtos/index.html.erb within layouts/application (Duration: 7.0ms | Allocations: 1920)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 6777)
+Completed 200 OK in 20ms (Views: 18.8ms | ActiveRecord: 0.3ms | Allocations: 8292)
+
+
+Started GET "/" for ::1 at 2023-05-16 08:38:49 -0300
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (0.1ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."nome" ASC[0m
+  ↳ app/views/produtos/index.html.erb:16
+  [1m[36mProduto Load (0.9ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."preco" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/produtos/index.html.erb:34
+  Rendered produtos/index.html.erb within layouts/application (Duration: 6.6ms | Allocations: 1940)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 6797)
+Completed 200 OK in 18ms (Views: 15.7ms | ActiveRecord: 1.0ms | Allocations: 8392)
+
+
+Started GET "/" for ::1 at 2023-05-16 08:38:51 -0300
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (0.5ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."nome" ASC[0m
+  ↳ app/views/produtos/index.html.erb:16
+  [1m[36mProduto Load (0.2ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."preco" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/produtos/index.html.erb:34
+  Rendered produtos/index.html.erb within layouts/application (Duration: 7.3ms | Allocations: 1463)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 5900)
+Completed 200 OK in 18ms (Views: 16.0ms | ActiveRecord: 0.7ms | Allocations: 6475)
+
+
+Started GET "/" for ::1 at 2023-05-16 08:38:52 -0300
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (0.1ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."nome" ASC[0m
+  ↳ app/views/produtos/index.html.erb:16
+  [1m[36mProduto Load (0.2ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."preco" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/produtos/index.html.erb:34
+  Rendered produtos/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1465)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 5969)
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.3ms | Allocations: 6483)
+
+
+Started GET "/" for ::1 at 2023-05-16 08:38:52 -0300
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (0.1ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."nome" ASC[0m
+  ↳ app/views/produtos/index.html.erb:16
+  [1m[36mProduto Load (0.2ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."preco" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/produtos/index.html.erb:34
+  Rendered produtos/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1463)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 5967)
+Completed 200 OK in 15ms (Views: 13.0ms | ActiveRecord: 0.3ms | Allocations: 6481)
+
+
+Started GET "/" for ::1 at 2023-05-16 08:38:53 -0300
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (0.1ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."nome" ASC[0m
+  ↳ app/views/produtos/index.html.erb:16
+  [1m[36mProduto Load (0.3ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."preco" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/produtos/index.html.erb:34
+  Rendered produtos/index.html.erb within layouts/application (Duration: 6.2ms | Allocations: 1463)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 5914)
+Completed 200 OK in 16ms (Views: 14.4ms | ActiveRecord: 0.3ms | Allocations: 6425)
+
+
+Started GET "/" for ::1 at 2023-05-16 08:41:57 -0300
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (0.1ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."nome" ASC[0m
+  ↳ app/views/produtos/index.html.erb:16
+  [1m[36mProduto Load (0.1ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."preco" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/produtos/index.html.erb:34
+  Rendered produtos/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1932)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 6803)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.2ms | Allocations: 8325)
+
+
+Started GET "/" for ::1 at 2023-05-16 08:43:24 -0300
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  Rendered produtos/index.html.erb within layouts/application (Duration: 21.6ms | Allocations: 7585)
+  Rendered layout layouts/application.html.erb (Duration: 22.0ms | Allocations: 7672)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.0ms | Allocations: 9228)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `account_daskboard_path' for #<ActionView::Base:0x00000000009e48>):
+    1: <html>
+    2: <%= nav_bar brand: "We're sooo web 1.0alizr", brand_link: account_daskboard_path %>
+    3:     <body>
+    4:         <table class="table table-bordered table-hover">
+    5:             <thead>
+  
+app/views/produtos/index.html.erb:2
+Started GET "/" for ::1 at 2023-05-16 08:43:47 -0300
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  Rendered produtos/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 4622)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 4700)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 6263)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `localhost' for #<ActionView::Base:0x0000000000a2a8>
+Did you mean?  locale):
+    1: <html>
+    2: <%= nav_bar brand: "My Store", brand_link: localhost %>
+    3:     <body>
+    4:         <table class="table table-bordered table-hover">
+    5:             <thead>
+  
+app/views/produtos/index.html.erb:2
+Started GET "/" for ::1 at 2023-05-16 08:44:04 -0300
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (0.3ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."nome" ASC[0m
+  ↳ app/views/produtos/index.html.erb:17
+  [1m[36mProduto Load (0.3ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."preco" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/produtos/index.html.erb:35
+  Rendered produtos/index.html.erb within layouts/application (Duration: 11.0ms | Allocations: 2207)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 18.2ms | Allocations: 7114)
+Completed 200 OK in 22ms (Views: 20.2ms | ActiveRecord: 0.5ms | Allocations: 8709)
+
+
+Started GET "/" for ::1 at 2023-05-16 08:44:06 -0300
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (0.1ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."nome" ASC[0m
+  ↳ app/views/produtos/index.html.erb:17
+  [1m[36mProduto Load (0.1ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."preco" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/produtos/index.html.erb:35
+  Rendered produtos/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1601)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 6037)
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.2ms | Allocations: 6614)
+
+
+Started GET "/" for ::1 at 2023-05-16 08:44:06 -0300
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (0.2ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."nome" ASC[0m
+  ↳ app/views/produtos/index.html.erb:17
+  [1m[36mProduto Load (0.2ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."preco" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/produtos/index.html.erb:35
+  Rendered produtos/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1601)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 6037)
+Completed 200 OK in 13ms (Views: 11.5ms | ActiveRecord: 0.4ms | Allocations: 6550)
+
+
+Started GET "/" for ::1 at 2023-05-16 08:45:47 -0300
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (0.2ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."nome" ASC[0m
+  ↳ app/views/produtos/index.html.erb:18
+  [1m[36mProduto Load (0.1ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."preco" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/produtos/index.html.erb:36
+  Rendered produtos/index.html.erb within layouts/application (Duration: 5.9ms | Allocations: 2160)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 7000)
+Completed 200 OK in 16ms (Views: 14.2ms | ActiveRecord: 0.3ms | Allocations: 8515)
+
+
+Started GET "/" for ::1 at 2023-05-16 08:49:15 -0300
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (0.1ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."nome" ASC[0m
+  ↳ app/views/produtos/index.html.erb:18
+  [1m[36mProduto Load (0.1ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."preco" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/produtos/index.html.erb:41
+  Rendered produtos/index.html.erb within layouts/application (Duration: 8.0ms | Allocations: 2159)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | Allocations: 6999)
+Completed 200 OK in 23ms (Views: 19.2ms | ActiveRecord: 0.2ms | Allocations: 8578)
+
+
+Started GET "/" for ::1 at 2023-05-16 08:49:37 -0300
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (0.1ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."nome" ASC[0m
+  ↳ app/views/produtos/index.html.erb:16
+  [1m[36mProduto Load (0.3ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."preco" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/produtos/index.html.erb:39
+  Rendered produtos/index.html.erb within layouts/application (Duration: 7.7ms | Allocations: 2157)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.8ms | Allocations: 6997)
+Completed 200 OK in 25ms (Views: 23.0ms | ActiveRecord: 0.4ms | Allocations: 8577)
+
+
