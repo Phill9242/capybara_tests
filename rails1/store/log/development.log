@@ -909,3 +909,400 @@ Processing by ProdutosController#index as HTML
 Completed 200 OK in 25ms (Views: 23.0ms | ActiveRecord: 0.4ms | Allocations: 8577)
 
 
+Started GET "/" for ::1 at 2023-05-16 08:50:47 -0300
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (0.1ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."nome" ASC[0m
+  ↳ app/views/produtos/index.html.erb:16
+  [1m[36mProduto Load (0.2ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."preco" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/produtos/index.html.erb:39
+  Rendered produtos/index.html.erb within layouts/application (Duration: 7.3ms | Allocations: 2164)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 7032)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.3ms | Allocations: 8618)
+
+
+Started GET "/produtos/cadastro" for ::1 at 2023-05-16 09:05:45 -0300
+Processing by ProdutosController#cadastro as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/cadastro.html.erb within layouts/application
+  Rendered produtos/cadastro.html.erb within layouts/application (Duration: 0.3ms | Allocations: 156)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 4999)
+Completed 200 OK in 10ms (Views: 9.7ms | Allocations: 6468)
+
+
+Started GET "/produtos/cadastro?nome=Bluesa&descricao=Grande&preco=11&quantidade=7" for ::1 at 2023-05-16 09:06:41 -0300
+Processing by ProdutosController#cadastro as HTML
+  Parameters: {"nome"=>"Bluesa", "descricao"=>"Grande", "preco"=>"11", "quantidade"=>"7"}
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/cadastro.html.erb within layouts/application
+  Rendered produtos/cadastro.html.erb within layouts/application (Duration: 0.2ms | Allocations: 39)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 4465)
+Completed 200 OK in 12ms (Views: 10.5ms | Allocations: 4956)
+
+
+Started GET "/" for ::1 at 2023-05-16 09:06:54 -0300
+Processing by ProdutosController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/produtos_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (1.1ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."nome" ASC[0m
+  ↳ app/views/produtos/index.html.erb:16
+  [1m[36mProduto Load (0.3ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."preco" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/produtos/index.html.erb:39
+  Rendered produtos/index.html.erb within layouts/application (Duration: 19.8ms | Allocations: 4891)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 39.5ms | Allocations: 9427)
+Completed 200 OK in 58ms (Views: 39.0ms | ActiveRecord: 4.3ms | Allocations: 14104)
+
+
+Started GET "/" for ::1 at 2023-05-16 09:08:34 -0300
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (0.2ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."nome" ASC[0m
+  ↳ app/views/produtos/index.html.erb:16
+  [1m[36mProduto Load (0.2ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."preco" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/produtos/index.html.erb:39
+  Rendered produtos/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 2156)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | Allocations: 6996)
+Completed 200 OK in 24ms (Views: 22.6ms | ActiveRecord: 0.4ms | Allocations: 8547)
+
+
+Started GET "/produtos/cadastro?nome=Bluesa&descricao=Grande&preco=11&quantidade=7" for ::1 at 2023-05-16 09:08:36 -0300
+Processing by ProdutosController#cadastro as HTML
+  Parameters: {"nome"=>"Bluesa", "descricao"=>"Grande", "preco"=>"11", "quantidade"=>"7"}
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/cadastro.html.erb within layouts/application
+  Rendered produtos/cadastro.html.erb within layouts/application (Duration: 0.4ms | Allocations: 123)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 4577)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.0ms | Allocations: 5178)
+
+
+Started GET "/produtos/cadastro?nome=Bluesa&descricao=Grande&preco=11&quantidade=7" for ::1 at 2023-05-16 09:08:37 -0300
+Processing by ProdutosController#cadastro as HTML
+  Parameters: {"nome"=>"Bluesa", "descricao"=>"Grande", "preco"=>"11", "quantidade"=>"7"}
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/cadastro.html.erb within layouts/application
+  Rendered produtos/cadastro.html.erb within layouts/application (Duration: 0.1ms | Allocations: 39)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 4493)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.0ms | Allocations: 4942)
+
+
+Started GET "/produtos/cadastro?nome=Bluesa&descricao=Grande&preco=11&quantidade=7" for ::1 at 2023-05-16 09:08:38 -0300
+Processing by ProdutosController#cadastro as HTML
+  Parameters: {"nome"=>"Bluesa", "descricao"=>"Grande", "preco"=>"11", "quantidade"=>"7"}
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/cadastro.html.erb within layouts/application
+  Rendered produtos/cadastro.html.erb within layouts/application (Duration: 0.4ms | Allocations: 39)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 4465)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms | Allocations: 4913)
+
+
+Started GET "/produtos/cadastro?nome=asdasd&descricao=1&preco=12%2C22&quantidade=12" for ::1 at 2023-05-16 09:08:49 -0300
+Processing by ProdutosController#cadastro as HTML
+  Parameters: {"nome"=>"asdasd", "descricao"=>"1", "preco"=>"12,22", "quantidade"=>"12"}
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/cadastro.html.erb within layouts/application
+  Rendered produtos/cadastro.html.erb within layouts/application (Duration: 0.5ms | Allocations: 158)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 5011)
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.0ms | Allocations: 6385)
+
+
+Started GET "/produtos/cadastro?nome=asdasd&descricao=1&preco=12%2C22&quantidade=12" for ::1 at 2023-05-16 09:10:14 -0300
+Processing by ProdutosController#cadastro as HTML
+  Parameters: {"nome"=>"asdasd", "descricao"=>"1", "preco"=>"12,22", "quantidade"=>"12"}
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/cadastro.html.erb within layouts/application
+  Rendered produtos/cadastro.html.erb within layouts/application (Duration: 1.8ms | Allocations: 159)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 5017)
+Completed 200 OK in 13ms (Views: 11.6ms | ActiveRecord: 0.0ms | Allocations: 6434)
+
+
+Started GET "/produtos/cadastro?nome=&descricao=&preco=1&quantidade=" for ::1 at 2023-05-16 09:10:18 -0300
+Processing by ProdutosController#cadastro as HTML
+  Parameters: {"nome"=>"", "descricao"=>"", "preco"=>"1", "quantidade"=>""}
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/cadastro.html.erb within layouts/application
+  Rendered produtos/cadastro.html.erb within layouts/application (Duration: 0.2ms | Allocations: 39)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 4488)
+Completed 200 OK in 12ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 4984)
+
+
+Started GET "/produtos/cadastro?nome=&descricao=&preco=1&quantidade=" for ::1 at 2023-05-16 09:10:58 -0300
+Processing by ProdutosController#cadastro as HTML
+  Parameters: {"nome"=>"", "descricao"=>"", "preco"=>"1", "quantidade"=>""}
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/cadastro.html.erb within layouts/application
+  Rendered produtos/cadastro.html.erb within layouts/application (Duration: 0.7ms | Allocations: 159)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 5012)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.0ms | Allocations: 6387)
+
+
+Started GET "/produtos/cadastro?nome=&descricao=&preco=1&quantidade=" for ::1 at 2023-05-16 09:10:58 -0300
+Processing by ProdutosController#cadastro as HTML
+  Parameters: {"nome"=>"", "descricao"=>"", "preco"=>"1", "quantidade"=>""}
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/cadastro.html.erb within layouts/application
+  Rendered produtos/cadastro.html.erb within layouts/application (Duration: 0.1ms | Allocations: 39)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 4465)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.0ms | Allocations: 4961)
+
+
+Started GET "/produtos/cadastro?nome=&descricao=&preco=12&quantidade=" for ::1 at 2023-05-16 09:11:01 -0300
+Processing by ProdutosController#cadastro as HTML
+  Parameters: {"nome"=>"", "descricao"=>"", "preco"=>"12", "quantidade"=>""}
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/cadastro.html.erb within layouts/application
+  Rendered produtos/cadastro.html.erb within layouts/application (Duration: 0.4ms | Allocations: 39)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 4465)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.0ms | Allocations: 4913)
+
+
+Started GET "/produtos/cadastro?nome=&descricao=&preco=12&quantidade=" for ::1 at 2023-05-16 09:18:27 -0300
+Processing by ProdutosController#cadastro as HTML
+  Parameters: {"nome"=>"", "descricao"=>"", "preco"=>"12", "quantidade"=>""}
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/cadastro.html.erb within layouts/application
+  Rendered produtos/cadastro.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1118)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 1197)
+Completed 500 Internal Server Error in 4ms (Allocations: 2632)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <html>
+    <body>
+        <%= form_for Produto.new do |form| %>
+            Nome <input type="text" name="nome"><br/>
+            Descrição <textarea type="textarea" name="descricao"></textarea><br/>
+            Preço <input type="text" name="preco" pattern="[0-9]+([,\.][0-9]+)?" step="0.01" title="ex: 10.99"  placeholder="Insira um valor">><br/>
+            Descrição <input type="number" name="quantidade"><br/>
+
+            <button type="submit"> Criar </button>
+        <% end >
+    </body>
+</html>
+):
+1:    <html>
+2:        <body>
+3:            <%= form_for Produto.new do |form| %>
+4:                Nome <input type="text" name="nome"><br/>
+5:                Descrição <textarea type="textarea" name="descricao"></textarea><br/>
+6:                Preço <input type="text" name="preco" pattern="[0-9]+([,\.][0-9]+)?" step="0.01" title="ex: 10.99"  placeholder="Insira um valor">><br/>
+7:                Descrição <input type="number" name="quantidade"><br/>
+8:    
+9:                <button type="submit"> Criar </button>
+10:            <% end >
+11:        </body>
+12:    </html>
+  
+app/views/produtos/cadastro.html.erb:14: syntax error, unexpected end-of-input, expecting `end'
+app/views/produtos/cadastro.html.erb:14: syntax error, unexpected end-of-input, expecting `end'
+app/views/produtos/cadastro.html.erb:14: syntax error, unexpected end-of-input, expecting `end'
+app/views/produtos/cadastro.html.erb:14: syntax error, unexpected end-of-input, expecting `end'
+app/views/produtos/cadastro.html.erb:14: syntax error, unexpected end-of-input, expecting `end'
+app/views/produtos/cadastro.html.erb:14: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/produtos/cadastro" for ::1 at 2023-05-16 09:18:44 -0300
+Processing by ProdutosController#cadastro as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/cadastro.html.erb within layouts/application
+  Rendered produtos/cadastro.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1085)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 1158)
+Completed 500 Internal Server Error in 3ms (Allocations: 1625)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <html>
+    <body>
+        <%= form_for Produto.new do |form| %>
+            Nome <input type="text" name="nome"><br/>
+            Descrição <textarea type="textarea" name="descricao"></textarea><br/>
+            Preço <input type="text" name="preco" pattern="[0-9]+([,\.][0-9]+)?" step="0.01" title="ex: 10.99"  placeholder="Insira um valor">><br/>
+            Descrição <input type="number" name="quantidade"><br/>
+
+            <button type="submit"> Criar </button>
+        <% end >
+    </body>
+</html>
+):
+1:    <html>
+2:        <body>
+3:            <%= form_for Produto.new do |form| %>
+4:                Nome <input type="text" name="nome"><br/>
+5:                Descrição <textarea type="textarea" name="descricao"></textarea><br/>
+6:                Preço <input type="text" name="preco" pattern="[0-9]+([,\.][0-9]+)?" step="0.01" title="ex: 10.99"  placeholder="Insira um valor">><br/>
+7:                Descrição <input type="number" name="quantidade"><br/>
+8:    
+9:                <button type="submit"> Criar </button>
+10:            <% end >
+11:        </body>
+12:    </html>
+  
+app/views/produtos/cadastro.html.erb:14: syntax error, unexpected end-of-input, expecting `end'
+app/views/produtos/cadastro.html.erb:14: syntax error, unexpected end-of-input, expecting `end'
+app/views/produtos/cadastro.html.erb:14: syntax error, unexpected end-of-input, expecting `end'
+app/views/produtos/cadastro.html.erb:14: syntax error, unexpected end-of-input, expecting `end'
+app/views/produtos/cadastro.html.erb:14: syntax error, unexpected end-of-input, expecting `end'
+app/views/produtos/cadastro.html.erb:14: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/produtos/cadastro" for ::1 at 2023-05-16 09:19:18 -0300
+Processing by ProdutosController#cadastro as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/cadastro.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/produtos/cadastro.html.erb:3
+  Rendered produtos/cadastro.html.erb within layouts/application (Duration: 16.1ms | Allocations: 7858)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 24.5ms | Allocations: 12657)
+Completed 200 OK in 27ms (Views: 26.2ms | ActiveRecord: 0.4ms | Allocations: 14022)
+
+
+Started POST "/produtos" for ::1 at 2023-05-16 09:19:45 -0300
+Processing by ProdutosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"Chinelo", "descricao"=>"branco", "preco"=>"12.2", "quantidade"=>"50"}
+Completed 400 Bad Request in 3ms (ActiveRecord: 0.0ms | Allocations: 786)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: produto
+Did you mean?  preco
+               controller
+               authenticity_token
+               descricao):
+  
+app/controllers/produtos_controller.rb:9:in `create'
+Started POST "/produtos" for ::1 at 2023-05-16 09:21:04 -0300
+Processing by ProdutosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"Chinelo", "descricao"=>"branco", "preco"=>"12.2", "quantidade"=>"50"}
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.0ms | Allocations: 658)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: produto
+Did you mean?  preco
+               controller
+               authenticity_token
+               descricao):
+  
+app/controllers/produtos_controller.rb:9:in `create'
+Started GET "/produtos/cadastro" for ::1 at 2023-05-16 09:21:06 -0300
+Processing by ProdutosController#cadastro as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/cadastro.html.erb within layouts/application
+  Rendered produtos/cadastro.html.erb within layouts/application (Duration: 1.4ms | Allocations: 557)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 5429)
+Completed 200 OK in 16ms (Views: 12.5ms | ActiveRecord: 0.0ms | Allocations: 6817)
+
+
+Started POST "/produtos" for ::1 at 2023-05-16 09:21:16 -0300
+Processing by ProdutosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "produto"=>{"nome"=>"chinelo", "descricao"=>"aa", "preco"=>"12", "quantidade"=>"1"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/produtos_controller.rb:10:in `create'
+  [1m[36mProduto Create (0.7ms)[0m  [1m[32mINSERT INTO "produtos" ("nome", "descricao", "preco", "quantidade", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["nome", "chinelo"], ["descricao", "aa"], ["preco", 12.0], ["quantidade", 1], ["created_at", "2023-05-16 12:21:17.003129"], ["updated_at", "2023-05-16 12:21:17.003129"]]
+  ↳ app/controllers/produtos_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (13.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/produtos_controller.rb:10:in `create'
+No template found for ProdutosController#create, rendering head :no_content
+Completed 204 No Content in 31ms (ActiveRecord: 14.1ms | Allocations: 7552)
+
+
+Started POST "/produtos" for ::1 at 2023-05-16 09:21:18 -0300
+Processing by ProdutosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "produto"=>{"nome"=>"chinelo", "descricao"=>"aa", "preco"=>"12", "quantidade"=>"1"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/produtos_controller.rb:10:in `create'
+  [1m[36mProduto Create (1.3ms)[0m  [1m[32mINSERT INTO "produtos" ("nome", "descricao", "preco", "quantidade", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["nome", "chinelo"], ["descricao", "aa"], ["preco", 12.0], ["quantidade", 1], ["created_at", "2023-05-16 12:21:18.551633"], ["updated_at", "2023-05-16 12:21:18.551633"]]
+  ↳ app/controllers/produtos_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (12.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/produtos_controller.rb:10:in `create'
+No template found for ProdutosController#create, rendering head :no_content
+Completed 204 No Content in 23ms (ActiveRecord: 13.6ms | Allocations: 4967)
+
+
+Started GET "/" for ::1 at 2023-05-16 09:21:22 -0300
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (0.3ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."nome" ASC[0m
+  ↳ app/views/produtos/index.html.erb:16
+  [1m[36mProduto Load (0.5ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."preco" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/produtos/index.html.erb:39
+  Rendered produtos/index.html.erb within layouts/application (Duration: 10.4ms | Allocations: 2148)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 18.6ms | Allocations: 6584)
+Completed 200 OK in 21ms (Views: 19.1ms | ActiveRecord: 0.8ms | Allocations: 7307)
+
+
+Started POST "/produtos" for ::1 at 2023-05-16 09:22:24 -0300
+Processing by ProdutosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "produto"=>{"nome"=>"chinelo", "descricao"=>"aa", "preco"=>"12", "quantidade"=>"1"}}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/produtos_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/produtos_controller.rb:10:in `create'
+  [1m[36mProduto Create (0.2ms)[0m  [1m[32mINSERT INTO "produtos" ("nome", "descricao", "preco", "quantidade", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["nome", "chinelo"], ["descricao", "aa"], ["preco", 12.0], ["quantidade", 1], ["created_at", "2023-05-16 12:22:24.302044"], ["updated_at", "2023-05-16 12:22:24.302044"]]
+  ↳ app/controllers/produtos_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (13.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/produtos_controller.rb:10:in `create'
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 14.6ms | Allocations: 12119)
+
+
+  
+NameError (undefined local variable or method `route_path' for #<ProdutosController:0x0000000000ee20>
+Did you mean?  root_path):
+  
+app/controllers/produtos_controller.rb:11:in `create'
+Started GET "/produtos/cadastro" for ::1 at 2023-05-16 09:22:51 -0300
+Processing by ProdutosController#cadastro as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/cadastro.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/produtos/cadastro.html.erb:3
+  Rendered produtos/cadastro.html.erb within layouts/application (Duration: 9.8ms | Allocations: 5270)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.5ms | Allocations: 9972)
+Completed 200 OK in 19ms (Views: 18.3ms | ActiveRecord: 1.0ms | Allocations: 10752)
+
+
+Started POST "/produtos" for ::1 at 2023-05-16 09:22:53 -0300
+Processing by ProdutosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "produto"=>{"nome"=>"chinelo", "descricao"=>"aa", "preco"=>"12", "quantidade"=>"1"}}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/produtos_controller.rb:10:in `create'
+  [1m[36mProduto Create (0.3ms)[0m  [1m[32mINSERT INTO "produtos" ("nome", "descricao", "preco", "quantidade", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["nome", "chinelo"], ["descricao", "aa"], ["preco", 12.0], ["quantidade", 1], ["created_at", "2023-05-16 12:22:53.012804"], ["updated_at", "2023-05-16 12:22:53.012804"]]
+  ↳ app/controllers/produtos_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (12.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/produtos_controller.rb:10:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 25ms (ActiveRecord: 13.7ms | Allocations: 4559)
+
+
+Started GET "/" for ::1 at 2023-05-16 09:22:53 -0300
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (0.2ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."nome" ASC[0m
+  ↳ app/views/produtos/index.html.erb:16
+  [1m[36mProduto Load (0.2ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."preco" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/produtos/index.html.erb:39
+  Rendered produtos/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1870)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 6307)
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.4ms | Allocations: 6914)
+
+
