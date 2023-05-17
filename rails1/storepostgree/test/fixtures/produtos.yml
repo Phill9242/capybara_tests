@@ -2,8 +2,8 @@
 
 one:
   nome: MyString
-  descrica: MyString
+  descricao: MyString
 
 two:
   nome: MyString
-  descrica: MyString
+  descricao: MyString

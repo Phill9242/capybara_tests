@@ -5,37 +5,37 @@ class DepartamentosTest < ApplicationSystemTestCase
     @departamento = departamentos(:one)
   end
 
-  test "visiting the index" do
+  test "visitar página departamentos" do
     visit departamentos_url
     assert_selector "h1", text: "Departamentos"
   end
 
   test "creating a Departamento" do
     visit departamentos_url
-    click_on "New Departamento"
+    click_on "Novo Departamento"
 
     fill_in "Nome", with: @departamento.nome
-    click_on "Create Departamento"
+    click_on "Criar Departamento"
 
     assert_text "Departamento was successfully created"
-    click_on "Back"
+    click_on "Voltar"
   end
 
   test "updating a Departamento" do
     visit departamentos_url
-    click_on "Edit", match: :first
+    click_on "Editar", match: :first
 
-    fill_in "Nome", with: @departamento.nome
-    click_on "Update Departamento"
+    fill_in "departamento_nome", with: @departamento.nome
+    click_on "Atualizar Departamento"
 
     assert_text "Departamento was successfully updated"
-    click_on "Back"
+    click_on "Voltar"
   end
 
-  test "destroying a Departamento" do
+  test "deletar um Departamento" do
     visit departamentos_url
     page.accept_confirm do
-      click_on "Destroy", match: :first
+      click_on "Remover", match: :first
     end
 
     assert_text "Departamento was successfully destroyed"
