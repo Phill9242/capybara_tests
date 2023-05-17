@@ -10957,3 +10957,117 @@ Processing by DepartamentosController#show as HTML
 Completed 200 OK in 64ms (Views: 58.5ms | ActiveRecord: 0.7ms | Allocations: 7795)
 
 
+Started GET "/" for ::1 at 2023-05-16 16:43:49 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (0.2ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."nome" ASC[0m
+  ↳ app/views/produtos/index.html.erb:18
+  [1m[36mDepartamento Load (0.1ms)[0m  [1m[34mSELECT "departamentos".* FROM "departamentos" WHERE "departamentos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/produtos/_produto.html.erb:4
+  [1m[36mCACHE Departamento Load (0.1ms)[0m  [1m[34mSELECT "departamentos".* FROM "departamentos" WHERE "departamentos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/produtos/_produto.html.erb:4
+  Rendered collection of produtos/_produto.html.erb [2 times] (Duration: 18.3ms | Allocations: 8396)
+  [1m[36mProduto Load (0.4ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."preco" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/produtos/index.html.erb:36
+  [1m[36mCACHE Departamento Load (0.1ms)[0m  [1m[34mSELECT "departamentos".* FROM "departamentos" WHERE "departamentos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/produtos/_produto.html.erb:4
+  Rendered collection of produtos/_produto.html.erb [1 times] (Duration: 7.2ms | Allocations: 1116)
+  Rendered produtos/index.html.erb within layouts/application (Duration: 35.9ms | Allocations: 15696)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 58.8ms | Allocations: 27932)
+Completed 200 OK in 77ms (Views: 64.1ms | ActiveRecord: 1.6ms | Allocations: 34438)
+
+
+Started GET "/produtos/new" for ::1 at 2023-05-16 16:43:52 -0300
+Processing by ProdutosController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/new.html.erb within layouts/application
+  [1m[36mDepartamento Load (0.2ms)[0m  [1m[34mSELECT "departamentos".* FROM "departamentos"[0m
+  ↳ app/views/produtos/_form.html.erb:30
+  Rendered produtos/_form.html.erb (Duration: 45.7ms | Allocations: 32746)
+  Rendered produtos/new.html.erb within layouts/application (Duration: 48.3ms | Allocations: 33550)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 54.9ms | Allocations: 38885)
+Completed 200 OK in 58ms (Views: 55.9ms | ActiveRecord: 0.2ms | Allocations: 39708)
+
+
+Started GET "/departamentos" for ::1 at 2023-05-16 16:43:53 -0300
+Processing by DepartamentosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering departamentos/index.html.erb within layouts/application
+  [1m[36mDepartamento Load (0.1ms)[0m  [1m[34mSELECT "departamentos".* FROM "departamentos"[0m
+  ↳ app/views/departamentos/index.html.erb:14
+  Rendered departamentos/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1797)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.2ms | Allocations: 7290)
+Completed 200 OK in 20ms (Views: 16.8ms | ActiveRecord: 0.1ms | Allocations: 8811)
+
+
+Started DELETE "/departamentos/1" for ::1 at 2023-05-16 16:43:56 -0300
+Processing by DepartamentosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mDepartamento Load (0.1ms)[0m  [1m[34mSELECT "departamentos".* FROM "departamentos" WHERE "departamentos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/departamentos_controller.rb:64:in `set_departamento'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/departamentos_controller.rb:53:in `destroy'
+  [1m[36mDepartamento Destroy (0.8ms)[0m  [1m[31mDELETE FROM "departamentos" WHERE "departamentos"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/departamentos_controller.rb:53:in `destroy'
+  [1m[36mTRANSACTION (19.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/departamentos_controller.rb:53:in `destroy'
+Redirected to http://localhost:3000/departamentos
+Completed 302 Found in 76ms (ActiveRecord: 20.6ms | Allocations: 5763)
+
+
+Started GET "/departamentos" for ::1 at 2023-05-16 16:43:56 -0300
+Processing by DepartamentosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering departamentos/index.html.erb within layouts/application
+  [1m[36mDepartamento Load (0.2ms)[0m  [1m[34mSELECT "departamentos".* FROM "departamentos"[0m
+  ↳ app/views/departamentos/index.html.erb:14
+  Rendered departamentos/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 952)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 22.1ms | Allocations: 6573)
+Completed 200 OK in 27ms (Views: 25.3ms | ActiveRecord: 0.2ms | Allocations: 7061)
+
+
+Started GET "/" for ::1 at 2023-05-16 16:43:58 -0300
+Processing by ProdutosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mProduto Load (0.1ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos" ORDER BY "produtos"."nome" ASC[0m
+  ↳ app/views/produtos/index.html.erb:18
+  [1m[36mDepartamento Load (0.1ms)[0m  [1m[34mSELECT "departamentos".* FROM "departamentos" WHERE "departamentos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/produtos/_produto.html.erb:4
+  Rendered collection of produtos/_produto.html.erb [2 times] (Duration: 7.9ms | Allocations: 2885)
+  Rendered produtos/index.html.erb within layouts/application (Duration: 12.1ms | Allocations: 3823)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 4037)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.2ms | Allocations: 5035)
+
+
+  
+ActionView::Template::Error (undefined method `nome' for nil:NilClass):
+    1: <tr>
+    2:     <td><%= produto.nome %></td>
+    3:     <td><%= produto.descricao %></td>
+    4:     <td><%= produto.departamento.nome %></td>
+    5:     <td><%= produto.preco %></td>
+    6:     <td><%= produto.quantidade %></td>
+    7:     <td>
+  
+app/views/produtos/_produto.html.erb:4
+app/views/produtos/index.html.erb:18
+Started GET "/departamentos" for ::1 at 2023-05-16 16:44:08 -0300
+Processing by DepartamentosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering departamentos/index.html.erb within layouts/application
+  [1m[36mDepartamento Load (0.3ms)[0m  [1m[34mSELECT "departamentos".* FROM "departamentos"[0m
+  ↳ app/views/departamentos/index.html.erb:14
+  Rendered departamentos/index.html.erb within layouts/application (Duration: 12.3ms | Allocations: 1165)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.4ms | Allocations: 6559)
+Completed 200 OK in 23ms (Views: 21.4ms | ActiveRecord: 0.3ms | Allocations: 7127)
+
+

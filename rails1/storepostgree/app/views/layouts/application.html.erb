@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Store</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <%= nav_bar brand: "My Store", brand_link: root_url do %>
+    <%= menu_group do %>
+      <%= menu_item "Cadastro", new_produto_path%>
+      <%= menu_item "Departamento", departamentos_path%>
+    <% end %>
+    <%= form_tag busca_produto_path, method: :get, class:"navbar-form navbar-right"  do%>
+      <div class="form-group">
+        <%= text_field_tag :nome, @nome, class:"form-control"%>
+        <%= button_to "Buscar", nil, class:"btn btn-default" %>
+      </div>
+    <% end %>
+  <% end %>
+  <div class="container">
+  <body>
+    <%= yield %>
+  </body>
+</html>
