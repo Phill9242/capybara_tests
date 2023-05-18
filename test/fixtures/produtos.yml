@@ -1,9 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  nome: MyString
-  descricao: MyString
+  nome: blusa
+  descricao: Confortável
+  preco: 19.99
+  quantidade: 5
+  departamento: one
 
 two:
-  nome: MyString
-  descricao: MyString
+  nome: Tênis
+  descricao: Preto, tamanho 40
+  preco: 119.99
+  quantidade: 15
+  departamento: two

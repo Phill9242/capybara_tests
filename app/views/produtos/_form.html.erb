@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col-sm-8">
             <div class="form-group">
-                <%= form.label :descricao %>
+                <%= form.label "descrição" %>
                 <%= form.text_area :descricao, class:"form-control", rows:4 %>
             </div>
         </div>
@@ -34,8 +34,8 @@
     <div class="row">
         <div class="col-sm-2">
             <div class="form-group">
-                <%= form.label :preco %>
-                <%= form.number_field :preco, step:0.01, class:"form-control" %>
+                <%= form.label "Preço" %>
+                <%= form.number_field :preco, step:0.01, class:"form-control preco" %>
             </div>
         </div>
     </div>           
