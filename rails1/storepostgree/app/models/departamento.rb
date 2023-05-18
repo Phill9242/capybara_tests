@@ -1,2 +1,0 @@
-class Departamento < ApplicationRecord
-end
