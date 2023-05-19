@@ -57,6 +57,8 @@ Em linhas gerais, DSL é uma linguagem de programação (ou de script) com o obj
 
 ### Métodos de Navegação
 
+Métodos disponíveis para acessar páginas da aplicação ou mesmo páginas externas.
+
 #### visit
 Responsável por navegar até uma página específica - ```visit(visit_uri)```
 
@@ -89,6 +91,8 @@ end
 ```
 
 ### Métodos de Interação com Links e Botões
+
+Os métodos apresentados nesta seção tem como objetivo interagir com botões e links, abrangendo não apenas botões que geram uma ação, mas também aqueles que podem ser selecionados para marcar alguma opção dentro do formulário.
 
 #### click_link  
 
@@ -387,6 +391,7 @@ end
 
 Anexa um arquivo a um campo de arquivo na página -  ```attach_file([locator], paths, **options) ``` ou  ```attach_file(paths) { ... } ```
 
+
 * O método attach_file recebe três argumentos: o primeiro é o elemento a ser acessado (um campo de arquivo), o segundo é o caminho para o arquivo que será anexado, e o terceiro (opcional) são as opções;
 * o campo de arquivo pode ser encontrado por seu name, id, test_id attribute, ou texto do label;
 * se nenhum localizador for passado, o método tentará anexar o arquivo ao campo de arquivo atual ou a um descendente;
@@ -402,8 +407,66 @@ test "anexar um documento" do
   assert page.has_content?('Formulário enviado com sucesso')
 end
  ```
+ *até a data atual, o modo ```attach_file(paths) { ... } ``` está em beta, e por isso não iremos abordá-lo neste momento*
+
  [Documentação attach_file](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Actions#attach_file-instance_method)
+ 
+ #### select
+
+Seleciona uma opção específica de uma caixa de seleção - \`select(value = nil, from: nil, **options) ⇒ Capybara::Node::Element\`
+
+Seleciona uma opção específica de uma caixa de seleção - ```select(value = nil, from: nil, **options) ⇒ Capybara::Node::Element```
+
+* A caixa de seleção pode ser encontrada através de seu name, id, atributo test_id ou texto do label.
+* O método select pode receber até três argumentos: o valor a ser selecionado, a caixa de seleção de onde o valor deve ser selecionado e opções adicionais.
+* o primeiro argumento, `value`, representa o valor que deve ser selecionado na caixa de seleção. Este argumento é obrigatório.
+* o segundo argumento, `from` especifica a caixa de seleção de onde o valor deve ser selecionado. Se este argumento for omitido, a função irá procurar a opção especificada dentro do escopo atual.
+* A opção dentro da caixa de seleção pode ser encontrada pelo seu texto.
+* Se a caixa de seleção for do tipo de múltipla seleção, o método select pode ser chamado várias vezes para selecionar mais de uma opção.
+
+Exemplos de testes:
+
+*Selecionar uma opção pelo seu valor*
+```
+test "selecionar mês" do
+  visit nova_data_path
+  select 'Março', from: 'Mês'
+  click_button 'Salvar'
+  assert page.has_content?('Março')
+end
+```
+*Selecionar uma opção sem especificar a caixa de seleção*
+ ```
+ test "selecionar mês sem especificar a caixa de seleção" do
+  visit nova_data_path
+  within '#data_form' do
+    select 'Março'
+  end
+  click_button 'Salvar'
+  assert page.has_content?('Março')
+end
+```
+*Selecionar múltiplas opções*
+```
+test "selecionar múltiplos interesses" do
+  visit novo_perfil_path
+  select 'Futebol', from: 'Interesses'
+  select 'Leitura', from: 'Interesses'
+  click_button 'Salvar'
+  assert page.has_content?('Futebol')
+  assert page.has_content?('Leitura')
+end
+```
+
+[Documentação select](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Actions#select-instance_method)
+
+### Querying
+
+Os métodos de querying servem para que possamos consultar elementos na página e validar se estão ou não estão presentes.
+Existem dezenas de métodos usados para realizar essa checagem. Por conta da abrangência e das inúmeras possibilidades de mesclagem desses diferentes métodos dentro de um mesmo teste, iremos focar em exemplificar alguns, focando em sua diversidade, ao invés de esmiuçar cada um deles.
+Para checar todos os métodos você pode acessar a [documentação](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Matchers) de *matchers* do capybara.
 ___
+
 ## Testando sua aplicação
 
 Agora que configuramos nossa aplicação e aprendemos sobre a DSL do Capybara, podemos dar início à criação de testes.
