@@ -55,7 +55,7 @@ ___
 ### O que é DSL (Domain Specific Language) ?
 Em linhas gerais, DSL é uma linguagem de programação (ou de script) com o objetivo de resolver um problema dentro de um escopo específico, por isso o nome *Linguagem Específica de Domínio*. No nosso caso, o objetivo da DSL é nos ajudar a interagir com os elementos presentes dentro de uma página web, pois é através dessas páginas que a maior parte dos nossos usuários interage com nossas aplicações.
 
-### DSL's de Navegação
+### Métodos de Navegação
 
 #### visit
 Responsável por navegar até uma página específica - ```visit(visit_uri)```
@@ -88,7 +88,7 @@ test "visitar uma página " do
 end
 ```
 
-### DSL's de Interação com Links e Botões
+### Métodos de Interação com Links e Botões
 
 #### click_link  
 
@@ -197,6 +197,212 @@ end
  * Seu modo de uso se assemelha à uma mesclagem dos métodos [click_button](#click_button) e [click_link](#click_link);
  * o cabybara será capaz de identificar se trata-se de um link ou botão de acordo com os parâmetros passados e realizará a ação de click.
  
+[Documentação click_link_or_button](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Actions#click_link_or_button-instance_method)
+ 
+ #### click_on 
+ 
+ Clica em um link ou botão na página - ```click_on([locator], **options)```
+ 
+ * Trata-se de um *alias* para outro método igual, para mais informações verifique [click_link_or_button](#click_link_or_button).
+ 
+ ### Métodos de interação com formulários
+ 
+ #### fill_in
+ 
+ Preenche um campo de um formulário - ```fill_in([locator], with: , **options```
+ 
+ * O método fill_in recebe 3 argumentos: o primeiro é o elemento a ser acessado, o segundo é o valor a ser preenchido dentro deste elemento e o terceiro são as opções e não é obrigatório;
+ * o primeiro argumento é um *text field* ou um *text area* e pode ser encontrado através de seu id, placeholder, name, test_id ou text_label;
+ * é possível, mas não aconselhado, utilizar fill_in sem um argumento de seu *locator*, pois ele irá preencher o elemento atual em que está;
+ * o segundo elemento deve ser acompanhado da palavra chave *with:* seguido do texto que será inserido dentro daquele campo. Ele será interpretado como uma string, mas isso não impede de preencher campos que exijam apenas argumentos numéricos.
+ 
+Exemplos de testes:
+ 
+ *Utilizando o id do campo*
+ ```
+# Preenche o campo com id 'email' com 'test@orcafascio.com'
+test "preencher o campo de email" do
+  visit formulario_path
+  fill_in 'email', with: 'test@orcafascio.com'
+  click_button 'Enviar'
+  assert page.has_content?('Formulário enviado com sucesso')
+end
+```
+*Utilizando o nome do campo*
+ ```
+# Preenche o campo com name 'senha' com 'senha123'
+test "preencher o campo de senha" do
+  visit formulario_path
+  fill_in 'senha', with: 'senha123'
+  click_button 'Enviar'
+  assert page.has_content?('Formulário enviado com sucesso')
+end
+``` 
+*Utilizando o placeholder do campo*
+ ``` 
+# Preenche o campo com placeholder 'Digite seu nome' com 'João'
+test "preencher o campo de nome" do
+  visit formulario_path
+  fill_in 'Digite seu nome', with: 'João'
+  click_button 'Enviar'
+  assert page.has_content?('Formulário enviado com sucesso')
+end
+``` 
+*Utilizando o label do campo*
+ ```
+# Preenche o campo com label 'Email' com 'test@orcafascio.com'
+test "preencher o campo de email pelo label" do
+  visit formulario_path
+  fill_in 'Email', with: 'test@orcafascio.com'
+  click_button 'Enviar'
+  assert page.has_content?('Formulário enviado com sucesso')
+end
+```
+[Documentação fill_in](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Actions#fill_in-instance_method)
+
+#### choose
+
+Encontra um botão de seleção do tipo *radio button* e o marca como selecionado - ```choose([locator], **options)```
+
+* O elemento pode ser encontrado através de seu name, id, test_id attribute ou label text;
+* se nenhum elemento for encontrado, ele irá marcar a si mesmo ou a um elemento filho;
+* o elemento deve ser um botão de rádio, onde apenas uma seleção entra várias é possível.
+
+ Exemplos de testes:
+
+*Utilizando o id do botão de rádio*
+ ```
+ # Seleciona o botão de rádio com id 'radio_sim'
+test "selecionar o botão de rádio 'sim'" do
+  visit formulario_path
+  choose 'radio_sim'
+  click_button 'Enviar'
+  assert page.has_content?('Formulário enviado com sucesso')
+end
+ ```
+ 
+*Utilizando o nome do botão de rádio*
+ ```
+ # Seleciona o botão de rádio com name 'resposta'
+test "selecionar o botão de rádio 'resposta'" do
+  visit formulario_path
+  choose 'resposta'
+  click_button 'Enviar'
+  assert page.has_content?('Formulário enviado com sucesso')
+end
+```
+*Utilizando o label do botão de rádio*
+ ```
+# Seleciona o botão de rádio com label 'Não'
+test "selecionar o botão de rádio 'Não'" do
+  visit formulario_path
+  choose 'Não'
+  click_button 'Enviar'
+  assert page.has_content?('Formulário enviado com sucesso')
+end
+ ```
+
+[Documentação choose](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Actions#choose-instance_method)
+ 
+ #### check
+
+Encontra um campo de um check box e marca-o como preenchido -  ```check([locator], **options) ```
+
+* O método check recebe 2 argumentos: o primeiro é o elemento a ser acessado e o segundo são as opções (não é obrigatório);
+* o elemento pode ser encontrado através de seu name, id, test_id attribute ou label text;
+* se nenhum elemento for encontrado, ele irá marcar a si mesmo ou a um elemento filho;
+* o elemento deve ser um caixa de seleção.
+ 
+ Exemplos de testes:
+
+*Utilizando o id do checkbox*
+ ```
+ # Seleciona o botão de rádio com id 'radio_sim'
+# Marca o checkbox com id 'checkbox_sim'
+test "marcar o checkbox 'sim'" do
+  visit formulario_path
+  check 'checkbox_sim'
+  click_button 'Enviar'
+  assert page.has_content?('Formulário enviado com sucesso')
+end
+ ```
+ 
+*Utilizando o nome do checkbox*
+ ```
+# Marca o checkbox com name 'resposta'
+test "marcar o checkbox 'resposta'" do
+  visit formulario_path
+  check 'resposta'
+  click_button 'Enviar'
+  assert page.has_content?('Formulário enviado com sucesso')
+end
+```
+*Utilizando o label do checkbox*
+ ```
+# Marca o checkbox com label 'Aceito os termos e condições'
+test "marcar o checkbox 'Aceito os termos e condições'" do
+  visit formulario_path
+  check 'Aceito os termos e condições'
+  click_button 'Enviar'
+  assert page.has_content?('Formulário enviado com sucesso')
+end
+
+ ```
+ *Marcando múltiplos checkboxes*
+  ```
+ # Marca múltiplos checkboxes 
+test "marcar múltiplos checkboxes" do
+  visit formulario_path
+  check 'Aceito os termos e condições'
+  check 'Desejo receber notícias por e-mail'
+  click_button 'Enviar'
+  assert page.has_content?('Formulário enviado com sucesso')
+end
+ ```
+  
+[Documentação check](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Actions#check-instance_method)
+ 
+#### uncheck
+
+Encontra um campo de um check box e marca-o como não preenchido -  ```uncheck([locator], **options) ```
+ 
+* O método uncheck recebe 2 argumentos: o primeiro é o elemento a ser acessado e o segundo são as opções (não é obrigatório);
+* o elemento pode ser encontrado através de seu name, id, test_id attribute ou label text;
+* se nenhum elemento for encontrado, ele irá desmarcar a si mesmo ou a um elemento filho;
+* o elemento deve ser um caixa de seleção;
+* a forma de utilização se assemelha ao [check](#check), mudando apenas o nome do método.
+ 
+Exemplos de testes:
+ ```
+ # Desmarca o checkbox com id 'checkbox_sim'
+test "desmarcar o checkbox 'sim'" do
+  visit formulario_path
+  uncheck 'checkbox_sim'
+  click_button 'Enviar'
+  assert page.has_content?('Formulário enviado com sucesso')
+end
+ ```
+ [Documentação uncheck](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Actions#uncheck-instance_method)
+ #### attach_file
+
+Anexa um arquivo a um campo de arquivo na página -  ```attach_file([locator], paths, **options) ``` ou  ```attach_file(paths) { ... } ```
+
+* O método attach_file recebe três argumentos: o primeiro é o elemento a ser acessado (um campo de arquivo), o segundo é o caminho para o arquivo que será anexado, e o terceiro (opcional) são as opções;
+* o campo de arquivo pode ser encontrado por seu name, id, test_id attribute, ou texto do label;
+* se nenhum localizador for passado, o método tentará anexar o arquivo ao campo de arquivo atual ou a um descendente;
+* nos casos em que o campo de arquivo está oculto por motivos de estilização, a opção make_visible pode ser usada para mudar temporariamente o CSS do campo de arquivo, anexar o arquivo, e depois reverter o CSS de volta ao original;
+
+Exemplos de testes:
+ ```
+# Anexa um arquivo a um campo de arquivo com id 'documento'
+test "anexar um documento" do
+  visit formulario_path
+  attach_file('documento', '/caminho/para/o/arquivo.pdf')
+  click_button 'Enviar'
+  assert page.has_content?('Formulário enviado com sucesso')
+end
+ ```
+ [Documentação attach_file](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Actions#attach_file-instance_method)
 ___
 ## Testando sua aplicação
 
