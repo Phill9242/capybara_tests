@@ -321,7 +321,6 @@ Encontra um campo de um check box e marca-o como preenchido -  ```check([locator
 
 *Utilizando o id do checkbox*
  ```
- # Seleciona o botão de rádio com id 'radio_sim'
 # Marca o checkbox com id 'checkbox_sim'
 test "marcar o checkbox 'sim'" do
   visit formulario_path
