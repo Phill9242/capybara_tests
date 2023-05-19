@@ -407,7 +407,7 @@ test "anexar um documento" do
   assert page.has_content?('Formulário enviado com sucesso')
 end
  ```
- *até a data atual, o modo ```attach_file(paths) { ... } ``` está em beta, e por isso não iremos abordá-lo neste momento*
+ *Até a data atual, o modo ```attach_file(paths) { ... } ``` está em beta, e por isso não iremos abordá-lo neste momento*
 
  [Documentação attach_file](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Actions#attach_file-instance_method)
  
