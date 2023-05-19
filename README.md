@@ -462,7 +462,9 @@ end
 ### Querying
 
 Os métodos de querying servem para que possamos consultar elementos na página e validar se estão ou não estão presentes.
+
 Existem dezenas de métodos usados para realizar essa checagem. Por conta da abrangência e das inúmeras possibilidades de mesclagem desses diferentes métodos dentro de um mesmo teste, iremos focar em exemplificar alguns, focando em sua diversidade, ao invés de esmiuçar cada um deles.
+
 Para checar todos os métodos você pode acessar a [documentação](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Matchers) de *matchers* do capybara.
 ___
 
