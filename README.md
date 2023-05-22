@@ -748,7 +748,44 @@ within_window new_window do
   assert_text 'Esta é uma nova aba'
 end
 ```
-[Documentação within_window](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara%2FSession:within_window)                            
+[Documentação within_window](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara%2FSession:within_window)
+                                 
+### Modais
+
+O capybara também nos permite interagir com modais com métodos específicos. Ao invés de tratá-los como janelas, é possível utilizar os métodos de modal e desta forma aceitar, recusar ou fechar modais com grande facilidade.
+
+#### accept_alert
+
+O método accept_alert é usado para interagir com um alerta JavaScript (modal) em uma página e aceitá-lo - ```accept_alert(text, **options)``` 
+
+* Este método executa um bloco de código e, em seguida, aceita qualquer alerta que tenha sido aberto durante a execução do bloco.
+* O método aceita um parâmetro opcional, que é o texto esperado no alerta. Se um texto é fornecido e o texto do alerta não corresponde, um erro será levantado.
+* É importante notar que o accept_alert só funcionará com alertas JavaScript simples - não funcionará com confirmations ou prompts, para os quais existem métodos separados.
+
+Exemplos de testes:
+
+*Utilizando o accept_alert para excluir um item após abrir um modal*
+```
+test "aceitar alerta após clicar no botão 'Excluir'" do
+  visit pagina_produtos_path
+  accept_alert do
+    click_button 'Excluir'
+  end
+  assert_text 'O item foi excluído com sucesso'
+end
+```
+*Utilizando o accept_alert para excluir um item após abrir um modal com um texto específico. Caso o texto não exista, um erro será levantado*
+```
+test "aceitar alerta com texto esperado após clicar no botão 'Excluir'" do
+  visit pagina_inicial_path
+  accept_alert('Tem certeza de que deseja excluir este item?') do
+    click_button 'Excluir'
+  end
+  assert_text 'O item foi excluído com sucesso'
+end
+```
+
+[Documentação accept_alert](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Session:accept_alert)                                
 ___
 
 ## Testando sua aplicação
