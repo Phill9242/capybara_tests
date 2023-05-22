@@ -785,7 +785,62 @@ test "aceitar alerta com texto esperado após clicar no botão 'Excluir'" do
 end
 ```
 
-[Documentação accept_alert](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Session:accept_alert)                                
+[Documentação accept_alert](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Session:accept_alert)   
+                                 
+#### dismiss_confirm
+
+O método `dismiss_confirm` é usado para interagir com uma janela de confirmação JavaScript (modal) em uma página. 
+
+*Este método executa um bloco de código e, em seguida, rejeita qualquer confirmação que tenha sido aberta durante a execução do bloco.
+*O método aceita um parâmetro opcional, que é o texto esperado na janela de confirmação. Se um texto é fornecido e o texto da confirmação não corresponder, um erro será levantado.
+*É importante notar que o `dismiss_confirm` só funcionará com confirmações JavaScript - não funcionará com alertas ou prompts, para os quais existem métodos separados.
+
+Exemplos de testes:
+
+*Utilizando o dismiss_confirm rejeitar a exclusão excluir de um item após abrir um modal*
+```
+test "rejeitar confirmação após clicar no botão 'Excluir'" do
+  visit pagina_inicial_path
+  dismiss_confirm do
+    click_button 'Excluir'
+  end
+  assert_no_text 'O item foi excluído com sucesso'
+end
+``` 
+
+*Utilizando o dismiss_confirm rejeitar a exclusão excluir de um item após abrir um modal com um texto específico*
+``` 
+test "rejeitar confirmação com texto esperado após clicar no botão 'Excluir'" do
+  visit pagina_inicial_path
+  dismiss_confirm('Tem certeza de que deseja excluir este item?') do
+    click_button 'Excluir'
+  end
+  assert_no_text 'O item foi excluído com sucesso'
+end
+``` 
+[Documentação dismiss_confirm](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Session:dismiss_confirm)
+
+#### accept_prompt
+
+O método `accept_prompt` é usado para interagir com uma caixa de diálogo JavaScript (prompt) em uma página. 
+
+* Este método executa um bloco de código e, em seguida, aceita qualquer prompt que tenha sido aberto durante a execução do bloco.
+* O método pode aceitar até dois parâmetros opcionais. O primeiro é o texto esperado no prompt, e o segundo é a resposta que você deseja dar ao prompt. Se o texto do prompt não corresponder ao texto fornecido, um erro será levantado.
+* É importante notar que o `accept_prompt` só funcionará com prompts JavaScript - não funcionará com alertas ou confirmações, para os quais existem métodos separados (`accept_alert`, `accept_confirm`, `dismiss_confirm`).
+
+Exemplos de testes:
+
+```
+test "aceitar prompt após clicar no botão 'Mudar Nome'" do
+  visit pagina_inicial_path
+  accept_prompt with: 'Novo Nome' do
+    click_button 'Mudar Nome'
+  end
+  assert_text 'O nome foi alterado para Novo Nome'
+end
+```
+
+[Documentação accept_prompt](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Session:accept_prompt)
 ___
 
 ## Testando sua aplicação
