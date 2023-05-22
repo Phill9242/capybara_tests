@@ -6,7 +6,9 @@ ___
 ## Índice
 
 [Orientações Gerais](#orientações-gerais)
+
 [Capybara e sua DSL](#capybara-e-sua-dsl)
+
 [Testando uma aplicação](#testando-uma-aplicação)
 ___
 ## Orientações Gerais
@@ -57,7 +59,7 @@ end
 Para termos certeza que o nosso arquivo de configuração vai ser lido, adicionaremos a seguinte linha ao arquivo *./test/test_helper.rb*: ```require 'support/capybara.config'```<br><br>
 ___
 
-## Cabybara e sua DSL
+## Capybara e sua DSL
 
 ### O que é DSL (Domain Specific Language) ?
 Em linhas gerais, DSL é uma linguagem de programação (ou de script) com o objetivo de resolver um problema dentro de um escopo específico, por isso o nome *Linguagem Específica de Domínio*. No nosso caso, o objetivo da DSL é nos ajudar a interagir com os elementos presentes dentro de uma página web, pois é através dessas páginas que a maior parte dos nossos usuários interage com nossas aplicações.
