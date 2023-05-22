@@ -3,7 +3,7 @@
 Este guia tem como objetivo auxiliar os colaboradores da Orça Fascio a criar testes de qualidade utilizando a GEM Capybara.
 
 ___
-## Índice
+## Índice Geral
 
 [Orientações Gerais](#orientações-gerais)
 
