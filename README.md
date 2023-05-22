@@ -163,9 +163,10 @@ test "clicar no botão Enviar" do
   click_button 'Enviar'
   assert page.has_content?('Formulário enviado com sucesso')
 end
-
 ```
+
 *Utilizar o id do botão*
+
 ```
 # Clica no botão com id 'botao_enviar'
 test "clicar no botão Enviar por id" do
@@ -174,7 +175,9 @@ test "clicar no botão Enviar por id" do
   assert page.has_content?('Formulário enviado com sucesso')
 end
 ```
+
 *Utilizar o name do botão*
+
 ```
 # Clica no botão com name 'enviar_formulario'
 test "clicar no botão Enviar por name" do
@@ -183,7 +186,9 @@ test "clicar no botão Enviar por name" do
   assert page.has_content?('Formulário enviado com sucesso')
 end
 ```
+
 *Utilizar o alt da imagem do botão*
+
 ```
 # Clica no botão com imagem contendo texto 'Enviar'
 test "clicar no botão Enviar por texto da imagem" do
@@ -192,11 +197,12 @@ test "clicar no botão Enviar por texto da imagem" do
   assert page.has_content?('Formulário enviado com sucesso')
 end
 ```
+
 [Documentação click_button](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Actions#click_button-instance_method)
 
 #### click_link_or_button 
 
- Clica em um link ou botão na página - ```click_link_or_button([locator], **options)```
+Clica em um link ou botão na página - ```click_link_or_button([locator], **options)```
   
  * Seu modo de uso se assemelha à uma mesclagem dos métodos [click_button](#click_button) e [click_link](#click_link);
  * o cabybara será capaz de identificar se trata-se de um link ou botão de acordo com os parâmetros passados e realizará a ação de click.
@@ -232,7 +238,9 @@ test "preencher o campo de email" do
   assert page.has_content?('Formulário enviado com sucesso')
 end
 ```
+
 *Utilizando o nome do campo*
+
  ```
 # Preenche o campo com name 'senha' com 'senha123'
 test "preencher o campo de senha" do
@@ -242,7 +250,9 @@ test "preencher o campo de senha" do
   assert page.has_content?('Formulário enviado com sucesso')
 end
 ``` 
+
 *Utilizando o placeholder do campo*
+
  ``` 
 # Preenche o campo com placeholder 'Digite seu nome' com 'João'
 test "preencher o campo de nome" do
@@ -252,7 +262,9 @@ test "preencher o campo de nome" do
   assert page.has_content?('Formulário enviado com sucesso')
 end
 ``` 
+
 *Utilizando o label do campo*
+
  ```
 # Preenche o campo com label 'Email' com 'test@orcafascio.com'
 test "preencher o campo de email pelo label" do
@@ -262,6 +274,7 @@ test "preencher o campo de email pelo label" do
   assert page.has_content?('Formulário enviado com sucesso')
 end
 ```
+
 [Documentação fill_in](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Actions#fill_in-instance_method)
 
 #### choose
@@ -275,6 +288,7 @@ Encontra um botão de seleção do tipo *radio button* e o marca como selecionad
  Exemplos de testes:
 
 *Utilizando o id do botão de rádio*
+
  ```
  # Seleciona o botão de rádio com id 'radio_sim'
 test "selecionar o botão de rádio 'sim'" do
@@ -286,6 +300,7 @@ end
  ```
  
 *Utilizando o nome do botão de rádio*
+
  ```
  # Seleciona o botão de rádio com name 'resposta'
 test "selecionar o botão de rádio 'resposta'" do
@@ -295,7 +310,9 @@ test "selecionar o botão de rádio 'resposta'" do
   assert page.has_content?('Formulário enviado com sucesso')
 end
 ```
+
 *Utilizando o label do botão de rádio*
+
  ```
 # Seleciona o botão de rádio com label 'Não'
 test "selecionar o botão de rádio 'Não'" do
@@ -331,6 +348,7 @@ end
  ```
  
 *Utilizando o nome do checkbox*
+
  ```
 # Marca o checkbox com name 'resposta'
 test "marcar o checkbox 'resposta'" do
@@ -340,7 +358,9 @@ test "marcar o checkbox 'resposta'" do
   assert page.has_content?('Formulário enviado com sucesso')
 end
 ```
+
 *Utilizando o label do checkbox*
+
  ```
 # Marca o checkbox com label 'Aceito os termos e condições'
 test "marcar o checkbox 'Aceito os termos e condições'" do
@@ -351,7 +371,9 @@ test "marcar o checkbox 'Aceito os termos e condições'" do
 end
 
  ```
+
  *Marcando múltiplos checkboxes*
+
   ```
  # Marca múltiplos checkboxes 
 test "marcar múltiplos checkboxes" do
@@ -375,7 +397,8 @@ Encontra um campo de um check box e marca-o como não preenchido -  ```uncheck([
 * o elemento deve ser um caixa de seleção;
 * a forma de utilização se assemelha ao [check](#check), mudando apenas o nome do método.
  
-Exemplos de testes:
+Exemplo de teste:
+
  ```
  # Desmarca o checkbox com id 'checkbox_sim'
 test "desmarcar o checkbox 'sim'" do
@@ -385,6 +408,7 @@ test "desmarcar o checkbox 'sim'" do
   assert page.has_content?('Formulário enviado com sucesso')
 end
  ```
+
  [Documentação uncheck](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Actions#uncheck-instance_method)
  #### attach_file
 
@@ -396,7 +420,8 @@ Anexa um arquivo a um campo de arquivo na página -  ```attach_file([locator], p
 * se nenhum localizador for passado, o método tentará anexar o arquivo ao campo de arquivo atual ou a um descendente;
 * nos casos em que o campo de arquivo está oculto por motivos de estilização, a opção make_visible pode ser usada para mudar temporariamente o CSS do campo de arquivo, anexar o arquivo, e depois reverter o CSS de volta ao original;
 
-Exemplos de testes:
+Exemplo de teste:
+
  ```
 # Anexa um arquivo a um campo de arquivo com id 'documento'
 test "anexar um documento" do
@@ -406,13 +431,12 @@ test "anexar um documento" do
   assert page.has_content?('Formulário enviado com sucesso')
 end
  ```
+
  *Até a data atual, o modo ```attach_file(paths) { ... } ``` está em beta, e por isso não iremos abordá-lo neste momento*
 
  [Documentação attach_file](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Actions#attach_file-instance_method)
  
  #### select
-
-Seleciona uma opção específica de uma caixa de seleção - \`select(value = nil, from: nil, **options) ⇒ Capybara::Node::Element\`
 
 Seleciona uma opção específica de uma caixa de seleção - ```select(value = nil, from: nil, **options) ⇒ Capybara::Node::Element```
 
@@ -426,6 +450,7 @@ Seleciona uma opção específica de uma caixa de seleção - ```select(value = 
 Exemplos de testes:
 
 *Selecionar uma opção pelo seu valor*
+
 ```
 test "selecionar mês" do
   visit nova_data_path
@@ -434,7 +459,9 @@ test "selecionar mês" do
   assert page.has_content?('Março')
 end
 ```
+
 *Selecionar uma opção sem especificar a caixa de seleção*
+
  ```
  test "selecionar mês sem especificar a caixa de seleção" do
   visit nova_data_path
@@ -445,7 +472,9 @@ end
   assert page.has_content?('Março')
 end
 ```
+
 *Selecionar múltiplas opções*
+
 ```
 test "selecionar múltiplos interesses" do
   visit novo_perfil_path
@@ -481,20 +510,25 @@ Valida se um determinado texto está presente na página - ```assert_text([text,
  Exemplos de testes:
  
  *Checar a presença de um texto na página*
+
  ```
  test "checar presença de boas vindas" do
   visit homepage_path
   assert_text 'Bem vindo ao nosso site!'
 end
  ```
+
 *Checar a presença de um texto dentro de um tipo específico de elemento*
+
  ```
  test "checar presença de texto em um elemento h1" do
   visit homepage_path
   assert_text 'Bem vindo ao nosso site!', type: :h1
 end
 ```
+
  *Checar a presença de um texto com um número mínimo de ocorrências*
+
  ```
  test "checar presença de produtos na lista de produtos" do
   visit produtos_path
@@ -505,7 +539,7 @@ end
 **Cuidados especiais com o option exact: true**
 
 Embora seja uma opção para validar se um texto exato existe dentro da página, é uma opção difícil de lidar. O método exact cria uma string de acordo com o *type* utilizado para encontrar o *text*. Desta forma, caso exista mais de um *type*, ou seja, se ele não estiver devidamente individualizado, uma string com todos os elementos que corresponde ao type irá ser gerada, podendo fazer com que a opção tenha um comportamento inesperado.
-Para evitar este cenário, é recomendado o uso de combinações de outros métodos, como por exemplo within em conjunto com o assert_text, ou assert_selector com a opção exact_text.
+Para evitar este cenário, é recomendado o uso de combinações de outros métodos, como por exemplo [within](#within) em conjunto com o [assert_text](#assert_text), ou assert_selector com a opção exact_text.
 
 *Exemplo de uso de within com assert_text*
  ```
@@ -534,20 +568,25 @@ Valida se um determinado texto não está presente na página - refute_text([tex
 Exemplos de testes:
 
 *Checar a ausência de um texto na página*
+
  ```
 test "checar ausência de mensagem de erro" do
   visit homepage_path
   refute_text 'Erro!'
 end
  ```
+
 *Checar a ausência de um texto dentro de um tipo específico de elemento*
+
  ```
 test "checar ausência de texto em um elemento h1" do
   visit homepage_path
   refute_text 'Erro!', type: :h1
 end
  ```
+
 *Checar a ausência de um texto com um número máximo de ocorrências*
+
  ```
 test "checar ausência de produtos na lista de produtos" do
   visit produtos_path
@@ -584,7 +623,9 @@ O método find_all, ou simplesmente all, retorna todos os elementos presentes na
  * Ao encontrar diversos elementos, todos serão salvos dentro de um array de objetos.
  
 Exemplos de testes:
+
  *Utilizar o retorno da função para verificar cada elemento dentro do array*
+
  ```
  test "verificar se todos os parágrafos contém um texto" do
   visit root_path
@@ -594,7 +635,9 @@ Exemplos de testes:
   end
 end
   ```
+
  *Checar o tamanho do array para verificar quantos elementos de erro existem*
+
  ```
 test "verificar se existem mais de 3 elementos com o id 'error'" do
   visit root_path
@@ -614,6 +657,7 @@ O método find retorna o primeiro elemento que corresponde aos parâmetros passa
 * Ao contrário do find_all, find retornará o primeiro elemento que corresponder ao seletor fornecido; além disto,  caso mais de um elemento seja encontrado, um erro de "ambiguous match" será levantado.
                            
 Exemplos de testes:
+
 *Verificar se um elemento com um determinado ID contém um texto específico* 
                                  
 ```
@@ -623,7 +667,7 @@ test "verificar se o elemento com o id 'welcome' contém o texto 'Bem-vindo!'" d
   assert_text 'Bem-vindo!', welcome_element.text
 end
 ```
-                                 
+       
 *Verificar se um elemento com um determinado CSS contém um texto específico*
                                  
 ```
@@ -680,7 +724,8 @@ O método within, ou within_element, é um método genérico de escopo com o qua
 
 Exemplos de testes: 
 
-*Utilizando within para encontrar um texto dentro de um campo específico*                                 
+*Utilizando within para encontrar um texto dentro de um campo específico*
+                                 
 ```
 test "verificar se o elemento dentro de um div específico contém o texto 'Bem-vindo!'" do
   visit root_path
@@ -689,7 +734,9 @@ test "verificar se o elemento dentro de um div específico contém o texto 'Bem-
   end
 end
 ```
+
 *Utilizando within para individualizar os campos de um formulário*
+
 ```
 test "preencher um formulário dentro de um div específico" do
   visit pagina_formulario_path
@@ -700,7 +747,9 @@ test "preencher um formulário dentro de um div específico" do
   end
 end
 ```
+
 *Utilizando within em conjunto com múltiplos elementos no bloco*
+
 ```
 test "verificar se todos os elementos de lista dentro de uma lista ordenada específica têm o texto correto" do
   visit pagina_lista_path
@@ -711,6 +760,7 @@ test "verificar se todos os elementos de lista dentro de uma lista ordenada espe
   end
 end
 ```
+
 [Documentação within](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Session#within-instance_method)
 
 #### Outros métodos de Scoping
@@ -724,6 +774,7 @@ within_fieldset('Detalhes do Contato') do
   fill_in 'Email', with: 'contato@example.com'
 end
 ```
+
 [Documentação within_fieldset](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara%2FSession:within_fieldset)                   
 
 **within_table**
@@ -748,6 +799,7 @@ within_window new_window do
   assert_text 'Esta é uma nova aba'
 end
 ```
+
 [Documentação within_window](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara%2FSession:within_window)
                                  
 ### Modais
@@ -765,6 +817,7 @@ O método *accept_alert* é usado para interagir com um alerta JavaScript (modal
 Exemplos de testes:
 
 *Utilizando o accept_alert para excluir um item após abrir um modal*
+
 ```
 test "aceitar alerta após clicar no botão 'Excluir'" do
   visit pagina_produtos_path
@@ -774,7 +827,9 @@ test "aceitar alerta após clicar no botão 'Excluir'" do
   assert_text 'O item foi excluído com sucesso'
 end
 ```
+
 *Utilizando o accept_alert para excluir um item após abrir um modal com um texto específico. Caso o texto não exista, um erro será levantado*
+
 ```
 test "aceitar alerta com texto esperado após clicar no botão 'Excluir'" do
   visit pagina_inicial_path
@@ -799,6 +854,7 @@ O método *dismiss_confirm* é usado para interagir com uma janela de confirmaç
 Exemplos de testes:
 
 *Utilizando o dismiss_confirm rejeitar a exclusão excluir de um item após abrir um modal*
+
 ```
 test "rejeitar confirmação após clicar no botão 'Excluir'" do
   visit pagina_inicial_path
@@ -810,6 +866,7 @@ end
 ``` 
 
 *Utilizando o dismiss_confirm rejeitar a exclusão excluir de um item após abrir um modal com um texto específico*
+
 ``` 
 test "rejeitar confirmação com texto esperado após clicar no botão 'Excluir'" do
   visit pagina_inicial_path
@@ -819,6 +876,7 @@ test "rejeitar confirmação com texto esperado após clicar no botão 'Excluir'
   assert_no_text 'O item foi excluído com sucesso'
 end
 ``` 
+
 [Documentação dismiss_confirm](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Session:dismiss_confirm)
 
 #### accept_prompt
@@ -850,12 +908,14 @@ O capybara por padrão fornece algumas formas de debugar o código mesmo sem pre
 Em primeiro lugar, sempre que um teste falhar durante a execução, uma *screenshot* será salva dentro da pasta `/tmp/screenshots/failures_test_{nome_do_teste}.png`. Este endereço será mostrado no início do teste, antes mesmo da mensagem de erro.
 
 Além disso, as mensagens de erro serão descritivas seguindo o padrão:
+
 ```
 Error:
 Nome_da_classe_de_teste#Nome_do_teste:
 Classe_da_exceção: descrição do erro
     caminho_arquivo_teste:linha_do_erro <bloco do erro>
-```    
+```
+    
 Abaixo está uma imagem de exemplo da descrição de um erro:
 
 ![image](https://github.com/Phill9242/capybara_tests/assets/85121830/ea21dc39-cbe3-4e48-8b1a-16cbf45d2620)
@@ -892,6 +952,7 @@ Este método nos permite tirar um snapshot de determinada página, salvá-lo e a
 Exemplo de teste:
 
 *Salva um arquivo HTML com o estado dos elementos após clicar em um botão*
+
 ``` 
 test "abrir a página após clicar no botão 'Enviar'" do
   visit formulario_path
@@ -912,6 +973,7 @@ Este método é similar ao [save_and_open_page](#save_and_open_page), mas ao inv
 Exemplo de teste:
 
 *Tira um screenshot e o salva no formato .png no clicar em um botão*
+
 ``` 
 test "abrir a página após clicar no botão 'Enviar'" do
   visit formulario_path
