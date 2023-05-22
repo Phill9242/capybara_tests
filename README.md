@@ -857,7 +857,7 @@ Classe_da_exceção: descrição do erro
 ```    
 Abaixo está uma imagem de exemplo da descrição de um erro:
 
-![image](https://github.com/Phill9242/capybara_tests/assets/85121830/c5d1efdf-eab3-4a83-8ce1-7de2034834da)
+![image](https://github.com/Phill9242/capybara_tests/assets/85121830/ea21dc39-cbe3-4e48-8b1a-16cbf45d2620)
 
 * Screenshot image: o caminho para a imagem gerada da tela quando o erro aconteceu.
 * ProdutoTest#test_visitar_a_página_de_cadastrar_novo_produto: O nome da classe do teste e o nome do teste, respectivamente, separados por uma hashtag.
