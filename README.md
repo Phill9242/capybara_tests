@@ -1,6 +1,13 @@
 # Guia de desenvolvimento de testes com Capybara 
 
 Este guia tem como objetivo auxiliar os colaboradores da Orça Fascio a criar testes de qualidade utilizando a GEM Capybara.
+
+___
+## Índice
+
+[Orientações Gerais](#orientações-gerais)
+[Capybara e sua DSL](#capybara-e-sua-dsl)
+[Testando uma aplicação](#testando-uma-aplicação)
 ___
 ## Orientações Gerais
 
@@ -985,12 +992,15 @@ end
 [Documentação save_screenshot](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Session:save_screenshot)
 ___
 
-## Testando sua aplicação
+## Testando uma aplicação
 
 Agora que configuramos nossa aplicação e aprendemos sobre a DSL do Capybara, podemos dar início à criação de testes.
 
 Em primeiro lugar, é necessário deixar claro que o objetivo do Capybara e deste Guia não é abordar os diferentes tipos de testes, mas sim focarmos nos testes ponta a ponta (end to end), mais espeficicamente na interação do usuário com a aplicação, ou seja, estamos no topo da [**pirâmide de testes**](https://blog.onedaytesting.com.br/piramide-de-teses/)
 
+### Diretrizes gerais
+
+É importante que 
 
 
 
