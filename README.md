@@ -1,6 +1,6 @@
 # Guia de desenvolvimento de testes com Capybara 
 
-Este guia tem como objetivo auxiliar os colaboradores da Orça Fascio a criar testes de qualidade utilizando a GEM Capybara.
+Este guia tem como objetivo auxiliar os colaboradores da Orça Fascio a criar testes de automatizados de *view* com a GEM Capybara explicando seus métodos e estipulando diretrizes básicas.
 
 ___
 ## Índice
