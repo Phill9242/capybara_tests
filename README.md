@@ -608,22 +608,24 @@ end
                                  
 O método find retorna o primeiro elemento que corresponde aos parâmetros passados - ``` find([kind = Capybara.default_selector], locator, **options) ```
 
-*O método recebe 3 argumentos, sendo apenas um obrigatório: o elemento a ser procurado.
-*Por padrão, caso apenas 1 argumento seja passado, o método irá procurar por elementos de CSS, mas o tipo também pode ser XPath, e portanto um elemento pode ser encontrado pelo seu id.
-* Ao contrário do find_all, find retornará o primeiro elemento que corresponder ao seletor fornecido.
-* Por padrão, caso mais de um elemento seja encontrado, um erro de "ambiguous match" será levantado.
+* O método recebe 3 argumentos, sendo apenas um obrigatório: o elemento a ser procurado.
+* Por padrão, caso apenas 1 argumento seja passado, o método irá procurar por elementos de CSS, mas o tipo também pode ser XPath, e portanto um elemento pode ser encontrado pelo seu id.
+* Ao contrário do find_all, find retornará o primeiro elemento que corresponder ao seletor fornecido; além disto,  caso mais de um elemento seja encontrado, um erro de "ambiguous match" será levantado.
                            
 Exemplos de testes:
 *Verificar se um elemento com um determinado ID contém um texto específico* 
-                                 ```
+                                 
+```
 test "verificar se o elemento com o id 'welcome' contém o texto 'Bem-vindo!'" do
   visit pagina_inicial_path
   welcome_element = find('#welcome')
   assert_text 'Bem-vindo!', welcome_element.text
 end
  ```
+                                 
 *Verificar se um elemento com um determinado CSS contém um texto específico*
- ```
+                                 
+```
 test "verificar se o primeiro parágrafo contém o texto 'Olá, Mundo!'" do
   visit pagina_inicial_path
   first_paragraph = find('p')
@@ -632,6 +634,28 @@ end
  ```
                                  
 [Documentação find](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Finders#find-instance_method)
+                                 
+#### outros métodos de finders
+
+**ancestor**
+O método ancestor é usado para encontrar um elemento que seja ancestral do elemento atual. É útil quando você precisa navegar na estrutura do DOM em relação ao elemento atual.
+
+**find_by_id**
+O método find_by_id é usado para encontrar um elemento na página, dado o seu ID. Este método é útil quando você precisa interagir com um elemento que tem um ID único.
+
+**find_field**
+O método find_field é usado para encontrar um campo de formulário na página. Isso pode ser útil quando você precisa interagir com campos de formulário específicos, como caixas de texto, caixas de seleção, botões de rádio, etc.
+
+**find_link**
+O método find_link é usado para encontrar um link na página. Isso pode ser útil quando você precisa interagir com um link específico.
+
+**first**
+O método first é usado para encontrar o primeiro elemento na página que corresponde aos parâmetros passados. É semelhante ao método find, mas não lança um erro se houver mais de um elemento correspondente.
+
+**sibling**
+O método sibling é usado para encontrar um elemento que seja um irmão do elemento atual. Isso é útil quando você precisa interagir com elementos que estão no mesmo nível na estrutura do DOM.
+                                 
+Para checar como utilizar cada um deles, veja a [documentação](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Finders)
 ___
 
 ## Testando sua aplicação
