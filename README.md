@@ -8,9 +8,13 @@ ___
 -[Orientações Gerais](#orientações-gerais)
 
 -[Capybara e sua DSL](#capybara-e-sua-dsl)
+
   -[Capybara GEM](#capybara-gem)
+
   -[Configurando sua aplicação](#configurando-sua-aplicação)
+
     -[Gemfile](#gemfile)
+    
 -[Testando uma aplicação](#testando-uma-aplicação)
 
 ___
