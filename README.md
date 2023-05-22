@@ -854,16 +854,73 @@ Além disso, as mensagens de erro serão descritivas seguindo o padrão:
 Error:
 Nome_da_classe_de_teste#Nome_do_teste:
 Classe_da_exceção: descrição do erro
+    caminho_arquivo_teste:linha_do_erro <bloco do erro>
 ```    
 Abaixo está uma imagem de exemplo da descrição de um erro:
 
 ![image](https://github.com/Phill9242/capybara_tests/assets/85121830/ea21dc39-cbe3-4e48-8b1a-16cbf45d2620)
 
-* Screenshot image: o caminho para a imagem gerada da tela quando o erro aconteceu.
-* ProdutoTest#test_visitar_a_página_de_cadastrar_novo_produto: O nome da classe do teste e o nome do teste, respectivamente, separados por uma hashtag.
-* Capybara:ambiguous: classe da exceção levantada.
-* Ambiguous match, found 5 elements matching visible css "div.row": A descrição do erro. Neste caso, era esperado que apenas um elemento fosse encontrado ao utilizar o teste "find", no entanto 5 elementos foram encontrados, e isso resultou em um erro.
-* test/system/cadastro_produtos_test.rb:16:in `block in <class:ProdutosTest>': caminho para encontrar o arquivo e a linha de código que gerou o erro.                    
+* **Screenshot image:** o caminho para a imagem gerada da tela quando o erro aconteceu.
+* **ProdutoTest#test_visitar_a_página_de_cadastrar_novo_produto:** O nome da classe do teste e o nome do teste, respectivamente, separados por uma hashtag.
+* **Capybara:ambiguous:** classe da exceção levantada.
+* **Ambiguous match, found 5 elements matching visible css "div.row":** A descrição do erro. Neste caso, era esperado que apenas um elemento fosse encontrado ao utilizar o teste "find", no entanto 5 elementos foram encontrados, e isso resultou em um erro.
+* **test/system/cadastro_produtos_test.rb:16:in `block in <class:ProdutosTest>':** caminho para encontrar o arquivo e a linha de código que gerou o erro.         
+
+Por fim, é importante notar que a depender do tempo para os testes serem executados, alguns comportamentos podem variar de acordo com o ambiente em que os testes estão sendo executados. Isto porque, ao lidar com processos assíncronos ao executar scripts na página, o tempo de resposta para renderizar determinada página pode ultrapassar o limite de 2 segundos colocados por padrão. Esses erros podem ser comuns ao tentar verificar elementos após clicar em um botão que renderiza a página, carrega elementos, etc. Talvez seja necessário aumentar o tempo de resposta dentro da sua [configuração](#onfiguracao_capybara), modificando o tempo limite de resposta, como no exemplo abaixo, onde o tempo máximo de espera foi modificado pra 5 segundos:
+
+```
+require 'capybara/rails'
+
+Capybara.configure do |config|
+  # outras configurações ...
+  Capybara.default_max_wait_time = 5
+end
+```
+* para mais informações a respeito de scripts assíncronos no capybara, acessa a [documentação](https://github.com/teamcapybara/capybara#asynchronous-javascript-ajax-and-friends)*
+
+Mesmo com essas ferramentas auxiliares, algumas vezes será necessário verificar a etapa anterior à qual estamos para encontrar o motivo que fez com que o teste funcionasse quando deveria falhar, ou falhar quando tudo parece indicar que não há erros. Para estes cenários, os métodos a seguir setão úteis para fazer essas verificações:
+
+#### save_and_open_page
+
+Este método nos permite tirar um snapshot de determinada página, salvá-lo e abrir - ```save_and_open_page(path = nil)```
+
+* Recebe um único parâmetro: o caminho onde o arquivo deverá ser salvo.
+* Caso nenhum argumento seja passado, utiliza o caminho padrão com um nome de arquivo aleatório (/temp/capybara).
+* O nome do arquivo gerado e o caminho para o mesmo são mostrados no terminal durante a execução dos testes.
+* O documento HTML será gerado de acordo com as interações de outros métodos até a chamada do método save_and_open_page, tornando possível checar como a página se comporta e renderiza após a chamada de cada método.
+
+Exemplo de teste:
+
+*Salva um arquivo HTML com o estado dos elementos após clicar em um botão*
+``` 
+test "abrir a página após clicar no botão 'Enviar'" do
+  visit formulario_path
+  click_button 'Enviar'
+  save_and_open_page
+end
+``` 
+
+[Documentação save_and_open_page](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Session:save_and_open_page)
+
+#### save_screenshot
+
+Este método é similar ao [save_and_open_page](#save_and_open_page), mas ao invés de salvar um snapshot, ele salva uma screenshot da tela. Desta forma é melhor utilizado para verificar bug's puramente visuais e até mesmo o comportamento de diferentes navegadores com determinado código HTML - ```save_screenshot(path = nil, **options)```.
+
+* Apesar de receber 2 argumentos, nenhum é obrigatório.
+* Caso nenhum argumento seja passado, utiliza o caminho padrão com um nome de arquivo aleatório (/temp/capybara).
+
+Exemplo de teste:
+
+*Tira um screenshot e o salva no formato .png no clicar em um botão*
+``` 
+test "abrir a página após clicar no botão 'Enviar'" do
+  visit formulario_path
+  click_button 'Enviar'
+  save_screenshot
+end
+``` 
+
+[Documentação save_screenshot](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Session:save_screenshot)
 ___
 
 ## Testando sua aplicação
