@@ -866,7 +866,7 @@ Abaixo está uma imagem de exemplo da descrição de um erro:
 * **Ambiguous match, found 5 elements matching visible css "div.row":** A descrição do erro. Neste caso, era esperado que apenas um elemento fosse encontrado ao utilizar o teste "find", no entanto 5 elementos foram encontrados, e isso resultou em um erro.
 * **test/system/cadastro_produtos_test.rb:16:in `block in <class:ProdutosTest>':** caminho para encontrar o arquivo e a linha de código que gerou o erro.         
 
-Por fim, é importante notar que a depender do tempo para os testes serem executados, alguns comportamentos podem variar de acordo com o ambiente em que os testes estão sendo executados. Isto porque, ao lidar com processos assíncronos ao executar scripts na página, o tempo de resposta para renderizar determinada página pode ultrapassar o limite de 2 segundos colocados por padrão. Esses erros podem ser comuns ao tentar verificar elementos após clicar em um botão que renderiza a página, carrega elementos, etc. Talvez seja necessário aumentar o tempo de resposta dentro da sua [configuração](#onfiguracao_capybara), modificando o tempo limite de resposta, como no exemplo abaixo, onde o tempo máximo de espera foi modificado pra 5 segundos:
+Por fim, é importante notar que a depender do tempo para os testes serem executados, alguns comportamentos podem variar de acordo com o ambiente em que os testes estão sendo executados. Isto porque, ao lidar com processos assíncronos ao executar scripts na página, o tempo de resposta para renderizar determinada página pode ultrapassar o limite de 2 segundos colocados por padrão. Esses erros podem ser comuns ao tentar verificar elementos após clicar em um botão que renderiza a página, carrega elementos, etc. Talvez seja necessário aumentar o tempo de resposta dentro da sua [configuração](#configuracao_capybara), modificando o tempo limite de resposta, como no exemplo abaixo, onde o tempo máximo de espera foi modificado pra 5 segundos:
 
 ```
 require 'capybara/rails'
@@ -876,7 +876,7 @@ Capybara.configure do |config|
   Capybara.default_max_wait_time = 5
 end
 ```
-* para mais informações a respeito de scripts assíncronos no capybara, acessa a [documentação](https://github.com/teamcapybara/capybara#asynchronous-javascript-ajax-and-friends)*
+*para mais informações a respeito de scripts assíncronos no capybara, acessa a [documentação](https://github.com/teamcapybara/capybara#asynchronous-javascript-ajax-and-friends)*
 
 Mesmo com essas ferramentas auxiliares, algumas vezes será necessário verificar a etapa anterior à qual estamos para encontrar o motivo que fez com que o teste funcionasse quando deveria falhar, ou falhar quando tudo parece indicar que não há erros. Para estes cenários, os métodos a seguir setão úteis para fazer essas verificações:
 
