@@ -756,7 +756,7 @@ O capybara também nos permite interagir com modais com métodos específicos. A
 
 #### accept_alert
 
-O método accept_alert é usado para interagir com um alerta JavaScript (modal) em uma página e aceitá-lo - ```accept_alert(text, **options)``` 
+O método *accept_alert* é usado para interagir com um alerta JavaScript (modal) em uma página e aceitá-lo - ```accept_alert(text, **options)``` ou ```accept_alert(**options)```
 
 * Este método executa um bloco de código e, em seguida, aceita qualquer alerta que tenha sido aberto durante a execução do bloco.
 * O método aceita um parâmetro opcional, que é o texto esperado no alerta. Se um texto é fornecido e o texto do alerta não corresponde, um erro será levantado.
@@ -789,7 +789,8 @@ end
                                  
 #### dismiss_confirm
 
-O método `dismiss_confirm` é usado para interagir com uma janela de confirmação JavaScript (modal) em uma página. 
+O método *dismiss_confirm* é usado para interagir com uma janela de confirmação JavaScript (modal) em uma página  - 
+```dismiss_confirm(text, **options) ``` ou ``` dismiss_confirm(**options)```
 
 *Este método executa um bloco de código e, em seguida, rejeita qualquer confirmação que tenha sido aberta durante a execução do bloco.
 *O método aceita um parâmetro opcional, que é o texto esperado na janela de confirmação. Se um texto é fornecido e o texto da confirmação não corresponder, um erro será levantado.
@@ -822,11 +823,11 @@ end
 
 #### accept_prompt
 
-O método `accept_prompt` é usado para interagir com uma caixa de diálogo JavaScript (prompt) em uma página. 
+O método *accept_prompt* é usado para interagir com uma caixa de diálogo JavaScript (prompt) em uma página - `accept_prompt(text, **options)` 
 
 * Este método executa um bloco de código e, em seguida, aceita qualquer prompt que tenha sido aberto durante a execução do bloco.
 * O método pode aceitar até dois parâmetros opcionais. O primeiro é o texto esperado no prompt, e o segundo é a resposta que você deseja dar ao prompt. Se o texto do prompt não corresponder ao texto fornecido, um erro será levantado.
-* É importante notar que o `accept_prompt` só funcionará com prompts JavaScript - não funcionará com alertas ou confirmações, para os quais existem métodos separados (`accept_alert`, `accept_confirm`, `dismiss_confirm`).
+* É importante notar que o `accept_prompt` só funcionará com prompts JavaScript - não funcionará com alertas ou confirmações, para os quais existem métodos separados (`accept_alert`,  `dismiss_confirm`).
 
 Exemplos de testes:
 
@@ -841,6 +842,28 @@ end
 ```
 
 [Documentação accept_prompt](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Session:accept_prompt)
+                                 
+### Debug
+
+O capybara por padrão fornece algumas formas de debugar o código mesmo sem precisar de métodos específicos.
+
+Em primeiro lugar, sempre que um teste falhar durante a execução, uma *screenshot* será salva dentro da pasta `/tmp/screenshots/failures_test_{nome_do_teste}.png`. Este endereço será mostrado no início do teste, antes mesmo da mensagem de erro.
+
+Além disso, as mensagens de erro serão descritivas seguindo o padrão:
+```
+Error:
+Nome_da_classe_de_teste#Nome_do_teste:
+Classe_da_exceção: descrição do erro
+```    
+Abaixo está uma imagem de exemplo da descrição de um erro:
+
+![image](https://github.com/Phill9242/capybara_tests/assets/85121830/c5d1efdf-eab3-4a83-8ce1-7de2034834da)
+
+* Screenshot image: o caminho para a imagem gerada da tela quando o erro aconteceu.
+* ProdutoTest#test_visitar_a_página_de_cadastrar_novo_produto: O nome da classe do teste e o nome do teste, respectivamente, separados por uma hashtag.
+* Capybara:ambiguous: classe da exceção levantada.
+* Ambiguous match, found 5 elements matching visible css "div.row": A descrição do erro. Neste caso, era esperado que apenas um elemento fosse encontrado ao utilizar o teste "find", no entanto 5 elementos foram encontrados, e isso resultou em um erro.
+* test/system/cadastro_produtos_test.rb:16:in `block in <class:ProdutosTest>': caminho para encontrar o arquivo e a linha de código que gerou o erro.                    
 ___
 
 ## Testando sua aplicação
