@@ -5,17 +5,17 @@ Este guia tem como objetivo auxiliar os colaboradores da Orça Fascio a criar te
 ___
 ## Índice
 
--[Orientações Gerais](#orientações-gerais)
+*[Orientações Gerais](#orientações-gerais)
 
--[Capybara e sua DSL](#capybara-e-sua-dsl)
+*[Capybara e sua DSL](#capybara-e-sua-dsl)
 
-  -[Capybara GEM](#capybara-gem)
+  *[Capybara GEM](#capybara-gem)
 
-  -[Configurando sua aplicação](#configurando-sua-aplicação)
+  *[Configurando sua aplicação](#configurando-sua-aplicação)
 
-    -[Gemfile](#gemfile)
-    
--[Testando uma aplicação](#testando-uma-aplicação)
+  *[Gemfile](#gemfile)
+
+*[Testando uma aplicação](#testando-uma-aplicação)
 
 ___
 ## Orientações Gerais
