@@ -556,7 +556,7 @@ end
  
 *Infelizmente não há documentação do método refute_text*
  
-#### métodos genéricos
+#### outros métodos de match
 
 Os métodos que começam com assert_ e refute_ (ou has_ e has_no_) são muito semelhantes - eles fazem afirmações sobre a presença ou ausência de um determinado elemento, texto ou condição. A diferença entre eles geralmente reside no que exatamente eles estão verificando (texto, CSS, XPath, etc.) e como eles esperam que esses elementos sejam passados (como um seletor CSS, XPath, etc.).
 
@@ -568,7 +568,70 @@ Os métodos que terminam em _field ou _button ou _link são métodos específico
 
 E, finalmente, os métodos que começam com matches_ estão verificando se um determinado elemento corresponde a um seletor ou condição específica.
 
+É possível checar a quase todos os métodos de *matchers* disponíveil no [site do rubydoc](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Matchers).
 
+### Finders
+
+Os finders são métodos especializados em encontrar elementos na página. Os elementos podem ser genéricos, ou seja, o método irá procurar por qualquer elemento que atenda as especificações do parâmetro passado para o método, ou pode ser específico, como por exemplo o método find_button, que irá procurar e retornar um elemento do tipo botão.
+
+#### find_all
+
+O método find_all, ou simplesmente all, retorna todos os elementos presentes na página que correspondem aos parâmetros passados. ```all([kind = Capybara.default_selector], locator = nil, **options)``` ou ```all([kind = Capybara.default_selector], locator = nil, **options) {|element| ... } ```
+ 
+ * O método recebe 3 argumentos, sendo apenas um obrigatório: o elemento a ser procurado.
+ * Por padrão, caso apenas 1 argumento seja passado, o método irá procurar por elementos de *CSS*, mas o tipo também pode ser *Xpath*, e portanto um elemento pode ser encontrado pelo seu id.
+ * Ao encontrar diversos elementos, todos serão salvos dentro de um array de objetos.
+ 
+Exemplos de testes:
+ *Utilizar o retorno da função para verificar cada elemento dentro do array*
+ ```
+ test "verificar se todos os parágrafos contém um texto" do
+  visit root_path
+  paragraphs = all('p')
+  paragraphs.each do |paragraph|
+    assert_text paragraph.text, type: :p
+  end
+end
+  ```
+ *Checar o tamanho do array para verificar quantos elementos de erro existem*
+ ```
+test "verificar se existem mais de 3 elementos com o id 'error'" do
+  visit root_path
+  error_elements = all('#error')
+  assert(error_elements.size <= 3, "Mais de três elementos com o id 'error' foram encontrados")
+end
+ ```
+
+ [Documentação find_all](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Finders#all-instance_method)
+                                 
+#### find
+                                 
+O método find retorna o primeiro elemento que corresponde aos parâmetros passados - ``` find([kind = Capybara.default_selector], locator, **options) ```
+
+*O método recebe 3 argumentos, sendo apenas um obrigatório: o elemento a ser procurado.
+*Por padrão, caso apenas 1 argumento seja passado, o método irá procurar por elementos de CSS, mas o tipo também pode ser XPath, e portanto um elemento pode ser encontrado pelo seu id.
+* Ao contrário do find_all, find retornará o primeiro elemento que corresponder ao seletor fornecido.
+* Por padrão, caso mais de um elemento seja encontrado, um erro de "ambiguous match" será levantado.
+                           
+Exemplos de testes:
+*Verificar se um elemento com um determinado ID contém um texto específico* 
+                                 ```
+test "verificar se o elemento com o id 'welcome' contém o texto 'Bem-vindo!'" do
+  visit pagina_inicial_path
+  welcome_element = find('#welcome')
+  assert_text 'Bem-vindo!', welcome_element.text
+end
+ ```
+*Verificar se um elemento com um determinado CSS contém um texto específico*
+ ```
+test "verificar se o primeiro parágrafo contém o texto 'Olá, Mundo!'" do
+  visit pagina_inicial_path
+  first_paragraph = find('p')
+  assert_text 'Olá, Mundo!', first_paragraph.text
+end
+ ```
+                                 
+[Documentação find](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Finders#find-instance_method)
 ___
 
 ## Testando sua aplicação
