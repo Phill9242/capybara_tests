@@ -3,7 +3,7 @@
 Este guia tem como objetivo auxiliar os colaboradores da Orça Fascio a criar testes de qualidade utilizando a GEM Capybara.
 
 ___
-## Índice Geral
+## Índice
 
 [Orientações Gerais](#orientações-gerais)
 
@@ -684,7 +684,7 @@ E, finalmente, os métodos que começam com matches_ estão verificando se um de
 
 [find](#find)
 
-[outros Métodos de Busca](#outros-métodos-de-busca)
+[Outros Métodos de Busca](#outros-métodos-de-busca)
 
 Os finders são métodos especializados em encontrar elementos na página. Os elementos podem ser genéricos, ou seja, o método irá procurar por qualquer elemento que atenda as especificações do parâmetro passado para o método, ou pode ser específico, como por exemplo o método find_button, que irá procurar e retornar um elemento do tipo botão.
 
@@ -754,7 +754,7 @@ end
                                  
 [Documentação find](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Finders#find-instance_method)
                                  
-#### outros métodos de busca
+#### Outros Métodos de Busca
 
 **ancestor**
                                  
