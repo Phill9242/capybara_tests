@@ -463,9 +463,112 @@ end
 
 Os métodos de querying servem para que possamos consultar elementos na página e validar se estão ou não estão presentes.
 
-Existem dezenas de métodos usados para realizar essa checagem. Por conta da abrangência e das inúmeras possibilidades de mesclagem desses diferentes métodos dentro de um mesmo teste, iremos focar em exemplificar alguns, focando em sua diversidade, ao invés de esmiuçar cada um deles.
+Existem dezenas de métodos usados para realizar essa checagem. Por conta da abrangência e das inúmeras possibilidades de mesclagem desses diferentes métodos dentro de um mesmo teste, iremos focar em exemplificar alguns, focando em sua diversidade e capacidade combinativa, ao invés de esmiuçar cada um deles.
 
-Para checar todos os métodos você pode acessar a [documentação](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Matchers) de *matchers* do capybara.
+*Para checar todos os métodos você pode acessar a [documentação](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Matchers) de **matchers** do capybara.*
+ 
+ #### assert_text
+
+Valida se um determinado texto está presente na página - ```assert_text([text, type], **options)``` ou ```assert_text(type, text, **options)```
+
+* O método *assert_text* recebe até três argumentos: o texto a ser validado, o tipo de elemento em que o texto deve estar presente e opções adicionais.
+* O primeiro argumento, text, representa o texto que se deseja verificar na página. Este argumento é obrigatório.
+* O segundo argumento, type, é opcional e especifica o tipo de elemento HTML no qual o texto deve ser procurado. Se omitido, o Capybara procurará o texto em todo o documento HTML.
+* O terceiro argumento, options, também é opcional e permite definir condições adicionais para a verificação, como o número mínimo ou máximo de ocorrências do texto.
+* Note que há duas maneiras distintas de se passar os argumentos para o método, e caso apenas um argumento for passado o compilador irá assumir o uso do  primeiro modelo: ```assert_text([text, type], **options)```.
+* Se o texto especificado não for encontrado na página, o teste falhará; por isso, caso queira checar se um texto **não existe** na página, utilize o método [refute_text](#refute_text), já que não é possível utilizar o retorno do método para efetuar comparações.
+ 
+ Exemplos de testes:
+ 
+ *Checar a presença de um texto na página*
+ ```
+ test "checar presença de boas vindas" do
+  visit homepage_path
+  assert_text 'Bem vindo ao nosso site!'
+end
+ ```
+*Checar a presença de um texto dentro de um tipo específico de elemento*
+ ```
+ test "checar presença de texto em um elemento h1" do
+  visit homepage_path
+  assert_text 'Bem vindo ao nosso site!', type: :h1
+end
+```
+ *Checar a presença de um texto com um número mínimo de ocorrências*
+ ```
+ test "checar presença de produtos na lista de produtos" do
+  visit produtos_path
+  assert_text 'Produto', minimum: 5
+end
+```
+ 
+**Cuidados especiais com o option exact: true**
+
+Embora seja uma opção para validar se um texto exato existe dentro da página, é uma opção difícil de lidar. O método exact cria uma string de acordo com o *type* utilizado para encontrar o *text*. Desta forma, caso exista mais de um *type*, ou seja, se ele não estiver devidamente individualizado, uma string com todos os elementos que corresponde ao type irá ser gerada, podendo fazer com que a opção tenha um comportamento inesperado.
+Para evitar este cenário, é recomendado o uso de combinações de outros métodos, como por exemplo within em conjunto com o assert_text, ou assert_selector com a opção exact_text.
+
+*Exemplo de uso de within com assert_text*
+ ```
+test "checar presença de texto exato dentro de um elemento específico" do
+  visit homepage_path
+  within '#welcome-message' do
+    assert_text 'Bem vindo ao nosso site!', exact: true
+  end
+end
+```
+[Documentação assert_text](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Matchers#assert_text-instance_method)
+
+#### refute_text
+
+Valida se um determinado texto não está presente na página - refute_text([text, type], **options) ou refute_text(type, text, **options)
+
+*O método refute_text é o oposto do método assert_text. Enquanto assert_text verifica a presença de um texto, refute_text verifica a ausência de um texto.
+*Assim como assert_text, refute_text recebe até três argumentos: o texto a ser validado, o tipo de elemento em que o texto deve estar presente e opções adicionais.
+*O primeiro argumento, text, representa o texto que se espera não encontrar na página. Este argumento é obrigatório.
+*O segundo argumento, type, é opcional e especifica o tipo de elemento HTML no qual o texto deve ser procurado. Se omitido, o Capybara procurará o texto em todo o documento HTML.
+*O terceiro argumento, options, também é opcional e permite definir condições adicionais para a verificação, como o número mínimo ou máximo de ocorrências do texto.
+*Note que há duas maneiras distintas de se passar os argumentos para o método, e caso apenas um argumento for passado o compilador irá assumir o uso do primeiro modelo: refute_text([text, type], **options).
+*Se o texto especificado for encontrado na página, o teste falhará.
+
+Exemplos de testes:
+
+*Checar a ausência de um texto na página*
+ ```
+test "checar ausência de mensagem de erro" do
+  visit homepage_path
+  refute_text 'Erro!'
+end
+ ```
+*Checar a ausência de um texto dentro de um tipo específico de elemento*
+ ```
+test "checar ausência de texto em um elemento h1" do
+  visit homepage_path
+  refute_text 'Erro!', type: :h1
+end
+ ```
+*Checar a ausência de um texto com um número máximo de ocorrências*
+ ```
+test "checar ausência de produtos na lista de produtos" do
+  visit produtos_path
+  refute_text 'Produto', maximum: 0
+end
+```
+ 
+*Infelizmente não há documentação do método refute_text*
+ 
+#### métodos genéricos
+
+Os métodos que começam com assert_ e refute_ (ou has_ e has_no_) são muito semelhantes - eles fazem afirmações sobre a presença ou ausência de um determinado elemento, texto ou condição. A diferença entre eles geralmente reside no que exatamente eles estão verificando (texto, CSS, XPath, etc.) e como eles esperam que esses elementos sejam passados (como um seletor CSS, XPath, etc.).
+
+Uma grande diferença entre os métodos que começam com *assert_/ refute_* e os que começam com  *has_/has_no_* é que enquanto os primeiros fazem com que o teste falhe caso as condições não sejam atendidas, os segundos apenas retornam valores de *true* ou *false* a depender da presença do elemento que está sendo verificado, e por isso pode ser encadeado em condicionais ou mesmo loops.
+
+Os métodos que terminam em _selector estão verificando a presença ou ausência de um determinado seletor (como um seletor CSS ou XPath), enquanto aqueles que terminam em _text estão verificando a presença ou ausência de um determinado texto (como os métodos [assert_text](#assert_text) e [refute_text](#refute_text)).
+
+Os métodos que terminam em _field ou _button ou _link são métodos específicos para verificar a presença ou ausência de um determinado campo de formulário, botão ou link, respectivamente.
+
+E, finalmente, os métodos que começam com matches_ estão verificando se um determinado elemento corresponde a um seletor ou condição específica.
+
+
 ___
 
 ## Testando sua aplicação
