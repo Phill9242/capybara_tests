@@ -29,7 +29,7 @@ Capybara é uma ferramenta para auxliar a criação de testes automatizados em R
 
 [Gemfile](#gemfile)
 
-[Configuração capybara](configuração-capybara)
+[Configuração capybara](#configuração-capybara)
 
 #### Gemfile
 
