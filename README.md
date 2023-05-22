@@ -5,20 +5,18 @@ Este guia tem como objetivo auxiliar os colaboradores da Orça Fascio a criar te
 ___
 ## Índice
 
-*[Orientações Gerais](#orientações-gerais)
+[Orientações Gerais](#orientações-gerais)
 
-*[Capybara e sua DSL](#capybara-e-sua-dsl)
+[Capybara e sua DSL](#capybara-e-sua-dsl)
 
-  *[Capybara GEM](#capybara-gem)
-
-  *[Configurando sua aplicação](#configurando-sua-aplicação)
-
-  *[Gemfile](#gemfile)
-
-*[Testando uma aplicação](#testando-uma-aplicação)
+[Testando uma aplicação](#testando-uma-aplicação)
 
 ___
 ## Orientações Gerais
+
+ [Capybara GEM](#capybara-gem)
+
+ [Configurando sua aplicação](#configurando-sua-aplicação)
 
 ### Capybara GEM
 
@@ -28,6 +26,10 @@ Capybara é uma ferramenta para auxliar a criação de testes automatizados em R
 <br><br>
  
 ### Configurando sua aplicação
+
+[Gemfile](#gemfile)
+
+[Configuração capybara](configuração-capybara)
 
 #### Gemfile
 
@@ -68,10 +70,38 @@ ___
 
 ## Capybara e sua DSL
 
+[O que é DSL ?](#o-que-é-dsl-(domain-specific-language))
+
+[Métodos de Navegação](#métodos-de-navegação)
+
+[Métodos de Interação com Links e Botões](#métodos-de-interação-com-links-e-botões)
+
+[Métodos de Interação com Formulários](#métodos-de-interação-com-formulários)
+
+[Métodos de Consulta](#métodos-de-consulta)
+
+[Métodos de Busca](#métodos-de-busca)
+
+[Métodos de Escopo](#métodos-de-escopo)
+
+[Métodos de Debug](#métodos-de-debug)
+
 ### O que é DSL (Domain Specific Language) ?
 Em linhas gerais, DSL é uma linguagem de programação (ou de script) com o objetivo de resolver um problema dentro de um escopo específico, por isso o nome *Linguagem Específica de Domínio*. No nosso caso, o objetivo da DSL é nos ajudar a interagir com os elementos presentes dentro de uma página web, pois é através dessas páginas que a maior parte dos nossos usuários interage com nossas aplicações.
 
 ### Métodos de Navegação
+
+[visit](#visit)
+
+[]
+
+[]
+
+[]
+
+[]
+
+[]
 
 Métodos disponíveis para acessar páginas da aplicação ou mesmo páginas externas.
 
@@ -504,9 +534,9 @@ end
 
 [Documentação select](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Actions#select-instance_method)
 
-### Querying
+### Métodos de Consulta
 
-Os métodos de querying servem para que possamos consultar elementos na página e validar se estão ou não estão presentes.
+Os métodos de *querying* (consulta) servem para que possamos consultar elementos na página e validar se estão ou não estão presentes.
 
 Existem dezenas de métodos usados para realizar essa checagem. Por conta da abrangência e das inúmeras possibilidades de mesclagem desses diferentes métodos dentro de um mesmo teste, iremos focar em exemplificar alguns, focando em sua diversidade e capacidade combinativa, ao invés de esmiuçar cada um deles.
 
@@ -626,7 +656,7 @@ E, finalmente, os métodos que começam com matches_ estão verificando se um de
 
 É possível checar a quase todos os métodos de *matchers* disponíveil no [site do rubydoc](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Matchers).
 
-### Finders
+### Métodos de Busca
 
 Os finders são métodos especializados em encontrar elementos na página. Os elementos podem ser genéricos, ou seja, o método irá procurar por qualquer elemento que atenda as especificações do parâmetro passado para o método, ou pode ser específico, como por exemplo o método find_button, que irá procurar e retornar um elemento do tipo botão.
 
@@ -696,7 +726,7 @@ end
                                  
 [Documentação find](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Finders#find-instance_method)
                                  
-#### outros métodos de finders
+#### outros métodos de busca
 
 **ancestor**
                                  
@@ -724,7 +754,7 @@ O método sibling é usado para encontrar um elemento que seja um irmão do elem
                                  
 Para checar como utilizar cada um deles, veja a [documentação](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Finders).
                                  
-### Scoping
+### Métodos de Escopo
 
 Pelo que vimos anteriormente, pudemos constatar que existem diversos métodos que conseguem encontrar, selecionar e retornar um ou mais elementos de uma página. Em geral, os métodos procuram dentro de toda a página atual por tais elementos, o que pode acabar atrapalhando em casos específicos de testes, como por exemplo um teste onde existem N números de elementos iguais espalhados por diferentes contextos, sem que haja uma identificação individualizada de cada um deles. 
 Diante deste cenário, os métodos de escopo permitem que trabalhemos dentro de um local específico dentro do nosso DOM, e resolvamos problemas de ambiguidade e individualização de elementos.
@@ -818,7 +848,7 @@ end
 
 [Documentação within_window](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara%2FSession:within_window)
                                  
-### Modais
+### Métodos para Modais
 
 O capybara também nos permite interagir com modais com métodos específicos. Ao invés de tratá-los como janelas, é possível utilizar os métodos de modal e desta forma aceitar, recusar ou fechar modais com grande facilidade.
 
@@ -917,7 +947,7 @@ end
 
 [Documentação accept_prompt](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Session:accept_prompt)
                                  
-### Debug
+### Métodos de Debug
 
 O capybara por padrão fornece algumas formas de debugar o código mesmo sem precisar de métodos específicos.
 
@@ -1009,7 +1039,6 @@ Em primeiro lugar, é necessário deixar claro que o objetivo do Capybara e dest
 
 ### Diretrizes gerais
 
-É importante que 
 
 
 
