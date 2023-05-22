@@ -933,7 +933,9 @@ O método *dismiss_confirm* é usado para interagir com uma janela de confirmaç
 ```dismiss_confirm(text, **options) ``` ou ``` dismiss_confirm(**options)```
 
 *Este método executa um bloco de código e, em seguida, rejeita qualquer confirmação que tenha sido aberta durante a execução do bloco.
+
 *O método aceita um parâmetro opcional, que é o texto esperado na janela de confirmação. Se um texto é fornecido e o texto da confirmação não corresponder, um erro será levantado.
+
 *É importante notar que o `dismiss_confirm` só funcionará com confirmações JavaScript - não funcionará com alertas ou prompts, para os quais existem métodos separados.
 
 Exemplos de testes:
