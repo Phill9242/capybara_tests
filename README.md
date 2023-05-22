@@ -522,14 +522,15 @@ end
 
 Valida se um determinado texto não está presente na página - refute_text([text, type], **options) ou refute_text(type, text, **options)
 
-*O método refute_text é o oposto do método assert_text. Enquanto assert_text verifica a presença de um texto, refute_text verifica a ausência de um texto.
-*Assim como assert_text, refute_text recebe até três argumentos: o texto a ser validado, o tipo de elemento em que o texto deve estar presente e opções adicionais.
-*O primeiro argumento, text, representa o texto que se espera não encontrar na página. Este argumento é obrigatório.
-*O segundo argumento, type, é opcional e especifica o tipo de elemento HTML no qual o texto deve ser procurado. Se omitido, o Capybara procurará o texto em todo o documento HTML.
-*O terceiro argumento, options, também é opcional e permite definir condições adicionais para a verificação, como o número mínimo ou máximo de ocorrências do texto.
-*Note que há duas maneiras distintas de se passar os argumentos para o método, e caso apenas um argumento for passado o compilador irá assumir o uso do primeiro modelo: refute_text([text, type], **options).
-*Se o texto especificado for encontrado na página, o teste falhará.
-
+* O método refute_text é o oposto do método assert_text. Enquanto assert_text verifica a presença de um texto, refute_text verifica a ausência de um texto.
+* Assim como assert_text, refute_text recebe até três argumentos: o texto a ser validado, o tipo de elemento em que o texto deve estar presente e opções adicionais.
+* O primeiro argumento, text, representa o texto que se espera não encontrar na página. Este argumento é obrigatório.
+* O segundo argumento, type, é opcional e especifica o tipo de elemento HTML no qual o texto deve ser procurado. Se omitido, o Capybara procurará o texto em todo o documento HTML.
+* O terceiro argumento, options, também é opcional e permite definir condições adicionais para a verificação, como o número mínimo ou máximo de ocorrências do texto.
+* Note que há duas maneiras distintas de se passar os argumentos para o método, e caso apenas um argumento for passado o compilador irá assumir o uso do primeiro modelo: refute_text([text, type], **options).
+* Se o texto especificado for encontrado na página, o teste falhará.
+* Também pode ser utilizado como *assert_no_text*.
+ 
 Exemplos de testes:
 
 *Checar a ausência de um texto na página*
@@ -554,7 +555,7 @@ test "checar ausência de produtos na lista de produtos" do
 end
 ```
  
-*Infelizmente não há documentação do método refute_text*
+[Documentação refute_text](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Minitest/Assertions#refute_text-instance_method)
  
 #### outros métodos de match
 
@@ -621,7 +622,7 @@ test "verificar se o elemento com o id 'welcome' contém o texto 'Bem-vindo!'" d
   welcome_element = find('#welcome')
   assert_text 'Bem-vindo!', welcome_element.text
 end
- ```
+```
                                  
 *Verificar se um elemento com um determinado CSS contém um texto específico*
                                  
@@ -631,31 +632,123 @@ test "verificar se o primeiro parágrafo contém o texto 'Olá, Mundo!'" do
   first_paragraph = find('p')
   assert_text 'Olá, Mundo!', first_paragraph.text
 end
- ```
+```
                                  
 [Documentação find](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Finders#find-instance_method)
                                  
 #### outros métodos de finders
 
 **ancestor**
+                                 
 O método ancestor é usado para encontrar um elemento que seja ancestral do elemento atual. É útil quando você precisa navegar na estrutura do DOM em relação ao elemento atual.
 
 **find_by_id**
+                                 
 O método find_by_id é usado para encontrar um elemento na página, dado o seu ID. Este método é útil quando você precisa interagir com um elemento que tem um ID único.
 
 **find_field**
+                                 
 O método find_field é usado para encontrar um campo de formulário na página. Isso pode ser útil quando você precisa interagir com campos de formulário específicos, como caixas de texto, caixas de seleção, botões de rádio, etc.
 
 **find_link**
+                                 
 O método find_link é usado para encontrar um link na página. Isso pode ser útil quando você precisa interagir com um link específico.
 
 **first**
+                                 
 O método first é usado para encontrar o primeiro elemento na página que corresponde aos parâmetros passados. É semelhante ao método find, mas não lança um erro se houver mais de um elemento correspondente.
 
 **sibling**
+                                 
 O método sibling é usado para encontrar um elemento que seja um irmão do elemento atual. Isso é útil quando você precisa interagir com elementos que estão no mesmo nível na estrutura do DOM.
                                  
-Para checar como utilizar cada um deles, veja a [documentação](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Finders)
+Para checar como utilizar cada um deles, veja a [documentação](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Finders).
+                                 
+### Scoping
+
+Pelo que vimos anteriormente, pudemos constatar que existem diversos métodos que conseguem encontrar, selecionar e retornar um ou mais elementos de uma página. Em geral, os métodos procuram dentro de toda a página atual por tais elementos, o que pode acabar atrapalhando em casos específicos de testes, como por exemplo um teste onde existem N números de elementos iguais espalhados por diferentes contextos, sem que haja uma identificação individualizada de cada um deles. 
+Diante deste cenário, os métodos de escopo permitem que trabalhemos dentro de um local específico dentro do nosso DOM, e resolvamos problemas de ambiguidade e individualização de elementos.
+                                 
+#### within
+                                 
+O método within, ou within_element, é um método genérico de escopo com o qual conseguimos fazer um recorte do HTML de acordo com os parâmetros passados- ```within(*find_args)``` ou ``` within(a_node)```
+
+* Embora a documentação não traga em seu protótipo, o método *within* aceita 2 parâmetros. O primeiro parâmetro é o tipo de elemento que irá identificar a busca (XPath ou CSS), e o segundo o elemento a ser procurado.
+* Por padrão, caso apenas um argumento seja passado, o elemento será buscado como CSS.
+* Caso mais de um elemento seja encontrado, um erro de ambiguidade será levantado.
+* Diferentemente dos outros seletores, ao invés de retornar um elemento, o método within dee ser chamado para executar um bloco de código dentro de seu contexto.
+
+Exemplos de testes: 
+
+*Utilizando within para encontrar um texto dentro de um campo específico*                                 
+```
+test "verificar se o elemento dentro de um div específico contém o texto 'Bem-vindo!'" do
+  visit root_path
+  within('div#welcome-div') do
+    assert_text 'Bem-vindo!'
+  end
+end
+```
+*Utilizando within para individualizar os campos de um formulário*
+```
+test "preencher um formulário dentro de um div específico" do
+  visit pagina_formulario_path
+  within('div#form-div') do
+    fill_in 'Nome', with: 'Meu nome'
+    fill_in 'Email', with: 'meuemail@email.com'
+    click_button 'Enviar'
+  end
+end
+```
+*Utilizando within em conjunto com múltiplos elementos no bloco*
+```
+test "verificar se todos os elementos de lista dentro de uma lista ordenada específica têm o texto correto" do
+  visit pagina_lista_path
+  within('ol#minha-lista') do
+    assert_text 'Item 1', within: 'li#item-1'
+    assert_text 'Item 2', within: 'li#item-2'
+    assert_text 'Item 3', within: 'li#item-3'
+  end
+end
+```
+[Documentação within](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Session#within-instance_method)
+
+#### Outros métodos de Scoping
+
+**within_fieldset**
+
+Este método permite especificar um escopo dentro de um conjunto de campos (fieldset) em um formulário. Isto é particularmente útil quando trabalhamos com formulários complexos que possuem múltiplos conjuntos de campos.   
+             
+```
+within_fieldset('Detalhes do Contato') do
+  fill_in 'Email', with: 'contato@example.com'
+end
+```
+[Documentação within_fieldset](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara%2FSession:within_fieldset)                   
+
+**within_table**
+
+Similar ao within_fieldset, este método permite especificar um escopo dentro de uma tabela. Isto pode ser útil quando formos trabalhar com páginas que possuem tabelas complexas.
+
+```
+within_table('Tabela de Produtos') do
+  assert_text 'Produto A'
+end
+```                                
+
+[Documentação within_table](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara%2FSession:within_frame)                          
+
+**within_window**
+
+Este método é usado para especificar um escopo dentro de uma janela ou aba específica do navegador. Isto é especialmente útil ao trabalhar com testes que envolvem a interação com múltiplas janelas ou abas.  
+
+```
+new_window = window_opened_by { click_link 'Abrir em nova aba' }
+within_window new_window do
+  assert_text 'Esta é uma nova aba'
+end
+```
+[Documentação within_window](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara%2FSession:within_window)                            
 ___
 
 ## Testando sua aplicação
