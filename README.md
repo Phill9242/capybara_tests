@@ -70,7 +70,7 @@ ___
 
 ## Capybara e sua DSL
 
-[O que é DSL ?](#o-que-é-dsl-(domain-specific-language))
+[O que é DSL ?](#o-que-é-dsl-domain-specific-language-)
 
 [Métodos de Navegação](#métodos-de-navegação)
 
@@ -78,7 +78,7 @@ ___
 
 [Métodos de Interação com Formulários](#métodos-de-interação-com-formulários)
 
-[Métodos de Consulta](#métodos-de-consulta)
+[Métodos de Match](#métodos-de-match)
 
 [Métodos de Busca](#métodos-de-busca)
 
@@ -93,19 +93,10 @@ Em linhas gerais, DSL é uma linguagem de programação (ou de script) com o obj
 
 [visit](#visit)
 
-[]
-
-[]
-
-[]
-
-[]
-
-[]
-
 Métodos disponíveis para acessar páginas da aplicação ou mesmo páginas externas.
 
 #### visit
+
 Responsável por navegar até uma página específica - ```visit(visit_uri)```
 
 * visit é um método que recebe apenas um parâmetro (o endereço que você desejar navegar); 
@@ -137,6 +128,14 @@ end
 ```
 
 ### Métodos de Interação com Links e Botões
+
+[click_link](#click_link)
+
+[click_button](#click_button)
+
+[click_link_or_button](#click_link_or_button)
+
+[click_on](#click_on)
 
 Os métodos apresentados nesta seção tem como objetivo interagir com botões e links, abrangendo não apenas botões que geram uma ação, mas também aqueles que podem ser selecionados para marcar alguma opção dentro do formulário.
 
@@ -263,6 +262,19 @@ Clica em um link ou botão na página - ```click_link_or_button([locator], **opt
  
  ### Métodos de interação com formulários
  
+[fill_in](#fill_in)
+
+[choose](#choose)
+
+[check](#check)
+
+[uncheck](#uncheck)
+
+[attach_file](#attach_file)
+
+[select](#select)
+
+
  #### fill_in
  
  Preenche um campo de um formulário - ```fill_in([locator], with: , **options```
@@ -534,7 +546,17 @@ end
 
 [Documentação select](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Actions#select-instance_method)
 
-### Métodos de Consulta
+### Métodos de Match
+
+
+[assert_text](#assert_text)
+
+
+[refute_text](#refute_text)
+
+
+[Outrous Métodos de Match](#outros-métodos-de-match)
+
 
 Os métodos de *querying* (consulta) servem para que possamos consultar elementos na página e validar se estão ou não estão presentes.
 
@@ -642,7 +664,7 @@ end
  
 [Documentação refute_text](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Minitest/Assertions#refute_text-instance_method)
  
-#### outros métodos de match
+#### Outros Métodos de Match
 
 Os métodos que começam com assert_ e refute_ (ou has_ e has_no_) são muito semelhantes - eles fazem afirmações sobre a presença ou ausência de um determinado elemento, texto ou condição. A diferença entre eles geralmente reside no que exatamente eles estão verificando (texto, CSS, XPath, etc.) e como eles esperam que esses elementos sejam passados (como um seletor CSS, XPath, etc.).
 
@@ -657,6 +679,12 @@ E, finalmente, os métodos que começam com matches_ estão verificando se um de
 É possível checar a quase todos os métodos de *matchers* disponíveil no [site do rubydoc](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Matchers).
 
 ### Métodos de Busca
+
+[find_all](#find_all)
+
+[find](#find)
+
+[outros Métodos de Busca](#outros-métodos-de-busca)
 
 Os finders são métodos especializados em encontrar elementos na página. Os elementos podem ser genéricos, ou seja, o método irá procurar por qualquer elemento que atenda as especificações do parâmetro passado para o método, ou pode ser específico, como por exemplo o método find_button, que irá procurar e retornar um elemento do tipo botão.
 
@@ -756,6 +784,11 @@ Para checar como utilizar cada um deles, veja a [documentação](https://rubydoc
                                  
 ### Métodos de Escopo
 
+[within](#within)
+
+
+[Outros Métodos de Escopo](#outros-métodos-de-escopo)
+
 Pelo que vimos anteriormente, pudemos constatar que existem diversos métodos que conseguem encontrar, selecionar e retornar um ou mais elementos de uma página. Em geral, os métodos procuram dentro de toda a página atual por tais elementos, o que pode acabar atrapalhando em casos específicos de testes, como por exemplo um teste onde existem N números de elementos iguais espalhados por diferentes contextos, sem que haja uma identificação individualizada de cada um deles. 
 Diante deste cenário, os métodos de escopo permitem que trabalhemos dentro de um local específico dentro do nosso DOM, e resolvamos problemas de ambiguidade e individualização de elementos.
                                  
@@ -809,7 +842,7 @@ end
 
 [Documentação within](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Session#within-instance_method)
 
-#### Outros métodos de Scoping
+#### Outros Métodos de Escopo
 
 **within_fieldset**
 
@@ -849,6 +882,13 @@ end
 [Documentação within_window](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara%2FSession:within_window)
                                  
 ### Métodos para Modais
+
+[accept_alert](#accept_alert)
+
+[dismiss_confirm](#dismiss_confirm)
+
+[accept_prompt](#accept_prompt)
+
 
 O capybara também nos permite interagir com modais com métodos específicos. Ao invés de tratá-los como janelas, é possível utilizar os métodos de modal e desta forma aceitar, recusar ou fechar modais com grande facilidade.
 
@@ -948,6 +988,10 @@ end
 [Documentação accept_prompt](https://rubydoc.info/github/teamcapybara/capybara/master/Capybara/Session:accept_prompt)
                                  
 ### Métodos de Debug
+
+[save_and_open_page](#save_and_open_page)
+
+[save_screenshot](#save_screenshot)
 
 O capybara por padrão fornece algumas formas de debugar o código mesmo sem precisar de métodos específicos.
 
