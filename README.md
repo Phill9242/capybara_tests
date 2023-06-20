@@ -1,6 +1,6 @@
 # Guia de desenvolvimento de testes com Capybara 
 
-Este guia tem como objetivo auxiliar os colaboradores da Orça Fascio a criar testes de qualidade utilizando a GEM Capybara.
+Este guia tem como objetivo auxiliar os colaboradores da OrçaFascio a criar testes de qualidade utilizando a GEM Capybara.
 
 ___
 ## Índice
@@ -22,7 +22,7 @@ ___
 
 Capybara é uma ferramenta para auxliar a criação de testes automatizados em Ruby. Com capybara é possível simular a interação do usuário com o seu site e verificar se a forma como sua aplicação responde as interações do usuário está dentro do esperado.
 
-*Utilizaremos a versão 3.26 do Capybara, que é compatível com as versões Ruby 2.7.7 e 3.1.0, utilizadas nos projetos da Orça Fascio.*
+*Utilizaremos a versão 3.26 do Capybara, que é compatível com as versões Ruby 2.7.7 e 3.1.0, utilizadas nos projetos da OrçaFascio.*
 <br><br>
  
 ### Configurando sua aplicação
